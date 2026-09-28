@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A.M. LEWIS: Film Producer, Podcaster, Storyteller</title>
+<meta name="description" content="A.M. Lewis is focused on creating emotionally resonant narrative films that illuminate underrepresented experiences and foster empathy, connection, and meaningful dialogue.">
+<!-- Social share preview (Open Graph + Twitter Card) — controls the
+     title/description/thumbnail shown when this link is pasted into
+     iMessage, Slack, Facebook, etc. Without these tags, apps that support
+     them show nothing at all rather than falling back to <title>/
+     <meta name="description"> above, so they're needed even though the
+     text mostly repeats those two tags. Image is the existing site logo
+     (media/logo.png, the same ripple-rings mark used for the nav lockup
+     and favicons) — near-square, so "summary" is the correct Twitter card
+     type rather than "summary_large_image" (meant for wide banner images). -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="A.M. LEWIS: Film Producer, Podcaster, Storyteller">
+<meta property="og:description" content="A.M. Lewis is focused on creating emotionally resonant narrative films that illuminate underrepresented experiences and foster empathy, connection, and meaningful dialogue.">
+<meta property="og:image" content="media/logo.png">
+<meta property="og:image:alt" content="A.M. Lewis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A.M. LEWIS: Film Producer, Podcaster, Storyteller">
+<meta name="twitter:description" content="A.M. Lewis is focused on creating emotionally resonant narrative films that illuminate underrepresented experiences and foster empathy, connection, and meaningful dialogue.">
+<meta name="twitter:image" content="media/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- Favicon — cropped/downsized from the existing ripple-rings mark in
+     media/logo.png (see .mission-glow/.mission-rings, the same motif used
+     throughout the site), not a new graphic. -->
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="media/favicon-180.png">
+<link rel="shortcut icon" href="media/favicon.ico">
+<link rel="preload" as="image" href="media/set2_intro.jpg"><!-- intro background under the opening quote; preloaded so it is ready when the quote starts -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="intro-pending has-photo-bg">
+<!-- PAGE BACKGROUND PHOTO: the color-suite "wall of frames" still
+     (media/bg_color_suite.jpg), fixed behind the whole home page, softened
+     and darkened so text stays readable (see "HOME PHOTO BACKGROUND" in
+     css/style.css). Hidden during the quote intro; fades in at the exact
+     moment the quote fades out and the reel fades in (js/main.js adds
+     .is-bg-revealed to <body> in beginEntrance()). -->
+<div class="page-photo-bg" aria-hidden="true"></div>
+<!-- SESSION-BASED INTRO SKIP: if the visitor already saw the full entrance
+     on this site session (Home was visited earlier — see the sessionStorage
+     write below, and beginEntrance()/skipIntro in js/main.js), swap
+     intro-pending for intro-skip right here, synchronously, before the
+     parser reaches any visible markup below. Because this runs before first
+     paint, none of the opacity/filter transitions those classes gate (see
+     the INTRO rules and the "body.intro-skip" overrides in css/style.css)
+     are ever perceived as animating — the chrome simply renders already in
+     its settled state, exactly like the existing <noscript> trick just
+     below uses CSS to achieve the same "avoid a flash of the wrong state"
+     result for the no-JS case. A genuinely new site session (new tab that
+     doesn't inherit sessionStorage, or the browser/tab having been closed)
+     has nothing stored, so the flag read is false and the full entrance
+     below runs exactly as before — nothing here changes that first-visit
+     path. Wrapped in try/catch purely so a browser with storage disabled
+     (e.g. private-mode edge cases) still gets the normal, safe first-visit
+     experience rather than a script error. -->
+<script>
+(function () {
+  try {
+    var seen = sessionStorage.getItem('rh-intro-played') === '1';
+    if (seen) {
+      document.body.classList.remove('intro-pending');
+      document.body.classList.add('intro-skip');
+    }
+    sessionStorage.setItem('rh-intro-played', '1');
+  } catch (e) { /* storage unavailable — fall back to the normal first-visit intro */ }
+})();
+</script>
+<!-- .intro-pending hides everything but the full-bleed hero background quote
+     until js/main.js reveals the overlay reel (see css/style.css "INTRO" rules
+     and main.js revealOverlay()). If JS is disabled, this noscript rule
+     un-hides the chrome immediately so the page still works. Also covers
+     .reveal-on-scroll (see the MISSION section below) — without JS, nothing
+     ever adds .is-visible, so this forces it visible too. -->
+<noscript><style>
+  body.intro-pending .site-nav,
+  body.intro-pending .tape-counter,
+  body.intro-pending .hero-scrim,
+  body.intro-pending .hero .grain,
+  body.intro-pending .nav-controls{ opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
+  .reveal-on-scroll{ opacity: 1 !important; transform: none !important; }
+</style></noscript>
+
+<!-- ============================= NAV ============================= -->
+<nav class="site-nav">
+  <div class="container">
+    <!-- Logo + wordmark lockup — both fade in together, at the exact same
+         rate/duration, gated by the same body.intro-pending mechanism (see
+         .site-nav .brand and .site-nav .brand-logo in css/style.css). No
+         separate JS/animation for the logo; it rides the brand's existing
+         t=0.000s/2.5s entrance exactly. -->
+    <a href="index.html" class="brand-lockup">
+      <img src="media/oscars.png" alt="" class="brand-logo">
+      <span class="brand">A.M. Lewis</span>
+    </a>
+    <div class="nav-controls">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="classes.html">Classes</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Accolades
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="news.html">In the News</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Work
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="film.html">Film Production</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="articles.html">Articles</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================= HERO ============================= -->
+<!-- Full-bleed, full-height hero. No copy above the fold except the nav and the
+     single CTA link below the overlay — matches the source site's stripped-back hero.
+     Sequence (see js/main.js, driven by two local <video> elements — no external
+     API/network dependency):
+       1. The full-bleed background quote fades in from black over .5s, then
+          reveals itself word by word at full brightness; nothing else on the
+          page is visible while it plays (nav + brand hidden — see
+          body.intro-pending rules in css/style.css).
+       2. Once the last word lands and the underline draws in, it holds
+          briefly. That settle is the ONLY trigger for what happens next:
+          js/main.js beginEntrance(), at t=0.000s of the timeline below.
+       3. t=0.000s: the settled quote starts dimming by 20% AND "A.M. Lewis"
+          AND the navigation menu fade in in place — all three over exactly
+          2.5s, ending together at t=2.500s.
+          t=1.000s: the overlay video fades in over exactly 1s, ending at
+          t=2.000s — muted, borderless, fully chromeless (no controls, not
+          interactive), sized to roughly 70% of the window's width. This
+          deliberately overlaps the brand/dim/nav animation above (unchanged
+          from before). A small button on it lets the visitor unmute it
+          manually.
+          t=2.125s (.125s after that fade completes): the caption
+          ("Entertainment Powering Empathy") — now positioned in the space
+          below the reel, vertically centered between the reel's bottom edge
+          and the bottom of the viewport, see .hero-below-reel — types
+          itself out one character at a time (at 4.5x the base per-character
+          rate) with a blinking cursor, which keeps blinking after typing
+          finishes. At this exact same instant, the awards/logo scroller
+          behind the caption (.awards-band) starts sliding on from the right
+          and begins its continuous loop — see startAwardsScroll() in
+          js/main.js. -->
+<header class="hero">
+  <!-- HERO BACKGROUND: ANIMATED QUOTE (replaces the old banner_web.mp4
+       background reel). It fills the exact same full-bleed layer and plays
+       the same role in the entrance timeline: js/main.js reveals it word by
+       word, lets it settle, and that settle is the trigger for
+       beginEntrance() (brand/nav fade in, this layer dims 20%, the overlay
+       reel fades in over it). On a repeat Home visit this session
+       (body.intro-skip) it simply appears already settled. main.js wraps
+       each word in a span at runtime; without JS the sentence is shown
+       whole. -->
+  <div class="hero-bg-video hero-bg-quote">
+    <blockquote class="hero-quote" id="hero-quote-el">
+      <p class="hero-quote-text">Even the most corporate or complicated subject matter will become captivating if you find the <em>human story</em> in it.</p>
+      <span class="hero-quote-rule" aria-hidden="true"></span>
+    </blockquote>
+  </div>
+  <div class="hero-scrim"></div>
+  <div class="grain"></div>
+
+  <div class="hero-inner">
+    <div class="hero-overlay">
+      <!-- LOCAL OVERLAY VIDEO (2nd clip), muted by default with a manual unmute
+           button. Fades in + autoplays via js/main.js beginEntrance(), at
+           t=1.000s of the entrance timeline (see the HERO comment above). -->
+      <div class="video-frame">
+        <video id="hero-overlay-video-el" src="media/about_web.mp4" poster="media/about_poster.jpg" muted loop playsinline disablepictureinpicture disableremoteplayback preload="auto"></video>
+        <button type="button" class="overlay-mute-toggle" aria-pressed="false" aria-label="Unmute video">
+          <!-- speaker glyph with two toggled overlays: an "X" (shown while
+               muted, the default) and sound-wave arcs (shown once unmuted).
+               js/main.js toggles .is-on on this element on click — same
+               mechanism as before, just a clearer icon. -->
+          <svg class="mute-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <g class="mute-icon-muted">
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </g>
+            <g class="mute-icon-on">
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </g>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Everything below the reel — the caption AND the awards/logo scroller
+         behind it — lives in this wrapper, vertically centered in whatever
+         space is left between the bottom of .video-frame above and the
+         bottom of the viewport. js/main.js measures the reel's actual
+         rendered bottom edge (positionBelowReel()) and sets this element's
+         top offset accordingly, on load and on resize, since that edge
+         moves with the reel's responsive/aspect-ratio-driven size. -->
+    <div class="hero-below-reel">
+      <!-- AWARDS / LOGO SCROLLER — purely decorative background layer, behind
+           the caption. Stays off-screen (translated fully past the right
+           edge) and not scrolling until js/main.js starts it — at the exact
+           same t=2.125s moment the typewriter below begins (see
+           beginEntrance()/typewriter()), never before. The list is
+           duplicated back-to-back so the loop (0% -> -50% translateX) wraps
+           with no visible seam. -->
+      <div class="awards-band">
+        <div class="awards-enter">
+          <div class="awards-track">
+            <div class="awards-set">
+              <img class="awards-logo awards-logo-deadline" src="media/deadline.png" alt="Deadline">
+              <img class="awards-logo awards-logo-wescreen" src="media/wescreen.png" alt="WeScreenplay">
+              <img class="awards-logo awards-logo-ar" src="media/AR_logo.png" alt="AR">
+              <img class="awards-logo awards-logo-kinship" src="media/Kinship_Logo.png" alt="Kinship: Culture Change for a Living Planet">
+              <img class="awards-logo awards-logo-finalist" src="media/finalist.png" alt="3 Finalist Awards">
+              <img class="awards-logo awards-logo-tsl" src="media/tsl.png" alt="TSL">
+              <img class="awards-logo awards-logo-top" src="media/top.png" alt="Top 3% of discoverable projects on Coverfly">
+              <img class="awards-logo awards-logo-brand" src="media/logo.png" alt="Ripple House">
+              <img class="awards-logo awards-logo-overall" src="media/overall.png" alt="Overall: Top 3%, 03/07/2024">
+            </div>
+            <div class="awards-set" aria-hidden="true">
+              <img class="awards-logo awards-logo-deadline" src="media/deadline.png" alt="">
+              <img class="awards-logo awards-logo-wescreen" src="media/wescreen.png" alt="">
+              <img class="awards-logo awards-logo-ar" src="media/AR_logo.png" alt="">
+              <img class="awards-logo awards-logo-kinship" src="media/Kinship_Logo.png" alt="">
+              <img class="awards-logo awards-logo-finalist" src="media/finalist.png" alt="">
+              <img class="awards-logo awards-logo-tsl" src="media/tsl.png" alt="">
+              <img class="awards-logo awards-logo-top" src="media/top.png" alt="">
+              <img class="awards-logo awards-logo-brand" src="media/logo.png" alt="">
+              <img class="awards-logo awards-logo-overall" src="media/overall.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Typed out one character at a time by js/main.js typewriter(), starting
+           at t=2.125s. aria-label carries the full phrase for screen readers
+           immediately, regardless of animation state; the visible spans are
+           aria-hidden since they're a redundant, purely visual effect. -->
+      <a href="contact.html" class="hero-link" aria-label="STORYTELLING DRIVING ENGAGEMENT"><span class="typed-text" aria-hidden="true"></span><span class="typed-cursor" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= MISSION ============================= -->
+<!-- The page's "next chapter" beat: never visible in the first viewport
+     (the hero above is a full 100vh), only revealed once the visitor
+     scrolls past the "entertainment powering empathy" caption. Content is
+     carried over verbatim from the reference bio screenshot; layout,
+     typography and the ripple-rings motif are original to this page — see
+     the MISSION comment block in css/style.css for the full rationale. -->
+<section class="mission" id="about">
+  <div class="mission-glow" aria-hidden="true"></div>
+  <div class="mission-rings" aria-hidden="true">
+    <span class="ring ring-1"></span>
+    <span class="ring ring-2"></span>
+    <span class="ring ring-3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="container">
+    <div class="mission-inner reveal-on-scroll">
+      <h2 class="mission-heading">Dedicated to <em>finding the story</em> since 2016...</h2>
+      <p class="lede mission-copy">...in live-action and animated film, podcasts, and long- and short-form writing to drive engagement and awareness for companies, brands, NGOs, and social causes.</p>
+      <!-- PLACEHOLDER: swap in A.M. Lewis's actual FilmFreeway bio URL -->
+      <a href="https://filmfreeway.com/" target="_blank" rel="noopener" class="btn btn-solid btn-mission">FilmFreeway Bio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="classes.html">Classes</a>
+          <a href="about.html">About</a>
+          <a href="index.html">Home</a>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="film.html">Film Production</a>
+          <a href="podcasts.html">Podcasts</a>
+          <a href="articles.html">Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+19703190560">(970) 319-0560</a>
+          <a href="mailto:alewis@ripplehouse.media">alewis@ripplehouse.media</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ripple House</span>
+      <span>Built as a static site</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================= CONTACT DRAWER ============================= -->
+<div class="contact-backdrop" id="contact-backdrop"></div>
+<aside class="contact-drawer" id="contact-drawer">
+  <button class="contact-drawer-close" aria-label="Close">✕</button>
+  <div class="contact-avatar">
+    <!-- PLACEHOLDER: images/contact-avatar.jpg (small circular headshot) -->
+    Photo
+  </div>
+  <p class="intro">Send a message — I'll come back to you as soon as I can.</p>
+  <form id="contact-form">
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="field">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="field">
+      <label for="message">Your message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-solid" style="width:100%; justify-content:center;">Send message</button>
+    <div class="form-msg success">Thanks for getting in touch — looking forward to speaking shortly.</div>
+  </form>
+  <p class="form-note">This demo form doesn't send email yet — connect it to a service like
+    Formspree or Netlify Forms. See the README.</p>
+</aside>
+
+<div class="tape-counter"><span class="dot"></span><span class="reading">0:00</span></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

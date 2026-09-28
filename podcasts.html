@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Podcasts | A.M. LEWIS: Film Producer, Podcaster, Storyteller</title>
+<meta name="description" content="We Are Rivers — the educational narrative podcast A.M. Lewis created, wrote, hosted, and produced for American Rivers, and the story of how it started.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- Favicon — cropped/downsized from the existing ripple-rings mark in
+     media/logo.png (see .mission-glow/.mission-rings, the same motif used
+     throughout the site), not a new graphic. -->
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="media/favicon-180.png">
+<link rel="shortcut icon" href="media/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- No .intro-pending on this page's <body> — same as about.html/screenplays.html/
+     live-action.html/classes.html/music.html/claymation.html/news.html/reviews.html,
+     that class/timeline only applies to the homepage's freeze-frame hero. This
+     page has no hero, so the nav is visible immediately. -->
+
+<!-- ============================= NAV ============================= -->
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand-lockup">
+      <img src="media/oscars.png" alt="" class="brand-logo">
+      <span class="brand">A.M. Lewis</span>
+    </a>
+    <div class="nav-controls">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="classes.html">Classes</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Accolades
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="news.html">In the News</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Work
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="film.html">Film Production</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="articles.html">Articles</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================= PAGE HEADER =============================
+     Same interior-page header pattern as screenplays.html/news.html/
+     reviews.html: .page-header + the homepage MISSION section's pink
+     ripple (.mission-glow/.mission-rings/.ring/@keyframes mission-ripple),
+     reused verbatim and resized via the .podcasts-header scoping rules in
+     css/style.css. The mission statement is the required copy, presented
+     as the header's .lede exactly like every other interior page. -->
+<header class="page-header podcasts-header">
+  <div class="mission-glow" aria-hidden="true"></div>
+  <div class="mission-rings" aria-hidden="true">
+    <span class="ring ring-1"></span>
+    <span class="ring ring-2"></span>
+    <span class="ring ring-3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="container page-header-inner">
+    <span class="eyebrow">Work</span>
+    <h1>Podcasts</h1>
+    <p class="lede">In podcasting, I find the compelling human narrative within subjects people might otherwise find too technical, complicated, uncomfortable, unfamiliar, or inaccessible—and transform it into entertainment that makes social issues, educational topics, and complex industries engaging, accessible, and genuinely enjoyable to understand, while inspiring people to care, learn more, and take action.</p>
+  </div>
+</header>
+
+<!-- ============================= BUILT IN SILICON =============================
+     Upcoming independently produced series (pitch stage). Same section-head
+     + reading-column vocabulary as We Are Rivers above; opening line as the
+     .lede, closing line set apart, and the status note in small italics. -->
+<section class="section podcast-feature-section podcast-upcoming-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Podcast Series · In Development</span>
+      <h2>Built in Silicon <span class="podcast-year">(2027)</span></h2>
+    </div>
+    <div class="podcast-upcoming-layout">
+      <div class="podcast-story podcast-upcoming reveal-on-scroll">
+        <p class="lede">A history of the semiconductor—and the people who built our modern world.</p>
+        <p>From the chips powering our phones, cars and dishwashers to the technology reshaping global power, <em>Built in Silicon</em> traces the remarkable history of the semiconductor through the humans who propelled it forward.</p>
+        <p>Moving decade by decade, the series goes beyond the expected engineers and executives to uncover the unlikely players whose ideas helped shape the technology—including figures from film, mathematics and culture, with interviews ranging from George Lucas to the children of Benoit Mandelbrot.</p>
+        <p>Each episode connects the breakthroughs of the past to the devices we barely think about today, ultimately arriving in the present: a world in which semiconductors have become so essential that nations are now competing for control of the technology that powers virtually everything.</p>
+        <p class="podcast-closer">The story of the microchip is the story of how we built the modern world.</p>
+        <p class="podcast-status-note">*An independently produced podcast pitch currently under bidding from tech companies, set to release in 2027.</p>
+      </div>
+      <figure class="podcast-upcoming-media reveal-on-scroll">
+        <div class="press-frame">
+          <img src="media/microchip_web.jpg" alt="A robotic arm placing microchips on a semiconductor production line" width="1168" height="724">
+        </div>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= WE ARE RIVERS =============================
+     The page's one content section: the We Are Rivers origin story, told in
+     full and reproduced exactly as supplied, in a single comfortable
+     reading column (.podcast-story — same plain <p> body-copy vocabulary as
+     .about-panel/.press-feature-copy elsewhere, opening line promoted to
+     .lede same as About), followed by the supplied Apple Podcasts preview
+     embed exactly as given (its sizing/rounding is already inline on the
+     iframe itself; .podcast-embed-wrap only centers and width-caps it). -->
+<section class="section podcast-feature-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Podcast Series</span>
+      <h2>We Are Rivers</h2>
+    </div>
+
+    <!-- ============================= APPLE REVIEWS =============================
+         Four review screenshots from media/podcast/ (1.png–4.png), each the
+         existing .press-frame bordered-panel treatment (reused verbatim from
+         NEWS/REVIEWS/CLAYMATION) inside a button, sized 1.25x their original
+         size. Manually scrolled, not automatic: .review-viewport is a native
+         horizontally-scrolling box (overflow-x, scroll-snap so each card
+         settles fully in view rather than landing mid-card) driven by the
+         two arrow buttons — .slideshow-arrow reused as-is (same circular
+         glass button already used by the Live Action slideshow) rather than
+         a new control, wired in main.js via reviewViewport.scrollBy() one
+         card-width at a time. An arrow dims and stops responding once
+         there's nothing left to scroll to on that side (see the
+         is-disabled toggling in main.js). Native touch/trackpad swipe still
+         works on the viewport too — the arrows are the intended control,
+         not the only way to move it.
+         Clicking any card opens its paired expanded version (1.5.png–
+         4.5.png) in a lightbox — a second instance of the existing
+         .video-modal overlay shell (already used by #video-modal/
+         #clay-video-modal elsewhere) holding a plain <img> instead of a
+         video, wired independently in main.js via [data-review-image] so
+         neither of those other modals is touched. See "PODCASTS page" in
+         css/style.css and the matching blocks in js/main.js. -->
+    <div class="podcast-reviews reveal-on-scroll">
+      <p class="press-kicker">Apple Podcasts Reviews</p>
+      <div class="review-banner">
+        <button type="button" class="slideshow-arrow review-arrow review-arrow-prev" aria-label="Scroll reviews left">&#8249;</button>
+        <div class="review-viewport">
+          <div class="review-track">
+            <button type="button" class="review-shot-card" data-review-image="media/podcast/1.5.png" data-review-label="Apple Podcasts review, screenshot 1 of 4 — expanded view">
+              <span class="press-frame review-shot-thumb">
+                <img src="media/podcast/1.png" alt="Apple Podcasts review of We Are Rivers, screenshot 1 of 4. Click to expand.">
+              </span>
+            </button>
+            <button type="button" class="review-shot-card" data-review-image="media/podcast/2.5.png" data-review-label="Apple Podcasts review, screenshot 2 of 4 — expanded view">
+              <span class="press-frame review-shot-thumb">
+                <img src="media/podcast/2.png" alt="Apple Podcasts review of We Are Rivers, screenshot 2 of 4. Click to expand.">
+              </span>
+            </button>
+            <button type="button" class="review-shot-card" data-review-image="media/podcast/3.5.png" data-review-label="Apple Podcasts review, screenshot 3 of 4 — expanded view">
+              <span class="press-frame review-shot-thumb">
+                <img src="media/podcast/3.png" alt="Apple Podcasts review of We Are Rivers, screenshot 3 of 4. Click to expand.">
+              </span>
+            </button>
+            <button type="button" class="review-shot-card" data-review-image="media/podcast/4.5.png" data-review-label="Apple Podcasts review, screenshot 4 of 4 — expanded view">
+              <span class="press-frame review-shot-thumb">
+                <img src="media/podcast/4.png" alt="Apple Podcasts review of We Are Rivers, screenshot 4 of 4. Click to expand.">
+              </span>
+            </button>
+          </div>
+        </div>
+        <button type="button" class="slideshow-arrow review-arrow review-arrow-next" aria-label="Scroll reviews right">&#8250;</button>
+      </div>
+    </div>
+
+    <!-- Lightbox overlay for the review screenshots above — see the HTML
+         comment on .podcast-reviews above for how this reuses .video-modal. -->
+    <div class="video-modal review-image-modal" id="review-image-modal">
+      <div class="video-modal-inner review-image-modal-inner">
+        <button type="button" class="video-modal-close" aria-label="Close expanded review">&times;</button>
+        <div class="review-image-frame">
+          <img class="review-image-modal-img" src="" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- Listen-on links, directly below the reviews — the site's existing
+         .btn pill component (see index.html's FilmFreeway Bio / news.html's
+         "Read the Feature" links for other uses), laid out side by side. -->
+    <div class="podcast-links reveal-on-scroll">
+      <a class="btn" href="https://www.americanrivers.org/podcast/" target="_blank" rel="noopener">Listen on American Rivers</a>
+      <a class="btn" href="https://podcasts.apple.com/us/podcast/we-are-rivers/id1287155338" target="_blank" rel="noopener">Listen on Apple Podcasts</a>
+    </div>
+
+    <!-- ============================= STORY + FIGURES =============================
+         Two-column layout: the story text on the left, a vertical column of
+         four supporting photos (media/podcast/) on the right — each the
+         existing .press-frame bordered-panel treatment with a caption
+         directly beneath it, same .podcast-figure component repeated four
+         times for consistent spacing/typography. .podcast-figures is
+         position:sticky within this grid row, so the photos stay in view
+         alongside wherever the reader currently is in the (much longer)
+         story text as they scroll, rather than only being aligned with it
+         at the very top; it stops sticking naturally once the grid row
+         itself (i.e. the story column) ends, since sticky is scoped to its
+         containing block. Stacks to a single column, sticky turned off,
+         below 860px — see the media query in css/style.css. -->
+    <div class="podcast-story-layout">
+      <div class="podcast-story">
+      <p class="lede">The Story Behind &ldquo;We Are Rivers,&rdquo; American River&rsquo;s Podcast Series:</p>
+      <p>I was an 18-year-old aspiring writer, fascinated by Western water conservation and law—and increasingly frustrated by how much waste in the system seemed to stem from misinformation and a basic lack of public understanding.</p>
+      <p>One day, I was reading an article in The Atlantic about the &ldquo;use it or lose it&rdquo; water policy, a subject I had recently explored in an independent podcast. And as I read this award-winning publication known for its journalistic rigor, I had a strange realization: They&rsquo;re explaining the law wrong.</p>
+      <p>I sent the article to two water-policy experts I had interviewed. Sure enough, the explanation was an incorrect oversimplification that distorted the reality of the policy so much that, unbeknownst to the journalist, reinforced one of the very schools of thought contributing to water waste in the Western United States.</p>
+      <p>The more I researched, the more I realized how widespread the problem was. Western water law is an extraordinarily complicated world of law, science, history, politics, agriculture, economics, identity, and culture. Even a famous documentary got the policy details wrong&ndash;it was that complicated to understand. And yes&ndash;also boring.</p>
+      <p>Meanwhile, most people had little idea where the water coming out of their own tap actually came from, much less how the policies governing it could incentivize either conservation or tremendous waste. And these weren&rsquo;t abstract misunderstandings: in the American West, communities have fought—and, historically, even killed—over water. And this particular policy, at the time, was creating a political bloodbath—sparking protests and pitting communities, policymakers, and water interests against one another.</p>
+      <p>But underneath all of that complexity was an incredible tapestry of people and stories. The problem wasn&rsquo;t that the subject was inherently too boring to understand or too difficult. The problem was that the people who understood it best were rarely storytellers or expressive, and the people telling the stories didn&rsquo;t always understand the subject deeply enough.</p>
+      <p>I wanted to bridge that gap.</p>
+      <p>I pitched a podcast to American Rivers, one of the country&rsquo;s largest river-conservation organizations, responsible for lobbying for landmark legislation such as the Clean Water Act in Congress. My argument was simple: through their extraordinary network of policy experts, scientists, advocates, and people whose lives revolved around rivers, they had an opportunity to become a trusted source of public education about Western water—but information alone wasn&rsquo;t enough. If they wanted the average person to understand why these issues mattered, engage with conservation, support their work, and ultimately care about protecting rivers, that information had to be translated into something accessible, human, and genuinely entertaining in a medium that busy people can easily engage with: while doing laundry, driving to pick up their kids, going on a run, et cetera. Podcasting.</p>
+      <p>They had the connections, and they had the need. But they didn&rsquo;t have a storyteller and they didn&rsquo;t have an easily accessible storytelling medium.</p>
+      <p>I pitched the series, attaching myself to write, host, and audio-edit it.</p>
+      <p>They said no. They thought the idea was too risky to fund.</p>
+      <p>So I offered to produce and release the first three episodes free of cost as a proof of concept.</p>
+      <p>They said yes.</p>
+      <p>Within months, it became their most successful tool for public engagement. The series amassed hundreds of thousands of listens across platforms through word of mouth alone—and even helped bring together major players in the water world who had once been bitter adversaries.</p>
+      <p>The podcast was officially greenlit.</p>
+      <p>I interviewed policy experts, river legends, renowned activists, former U.S. Secretary of the Interior Ken Salazar, and New York Times bestselling authors such as Kevin Fedarko, among many others. When Fedarko—an award-winning journalist and bestselling author—was researching his 2024 book, A Walk in the Park, he told me he was using the series as part of his research.</p>
+      <p>The podcast continues today, and its success ultimately inspired American Rivers, a nationwide organization with offices across the country, to establish an entire storytelling department.</p>
+      <p>When I eventually decided to leave American Rivers to focus on my degree in Organismal Biology and Ecology while developing a narrative feature film, I asked them to replace me with my boss—whom I adored—and helped facilitate the transition.</p>
+      <p>We Are Rivers was my first ever media project, though my technical editing and production skills are admittedly much better today, how I approach storytelling has remained the same. I take important subjects people might otherwise find too technical, complicated, unfamiliar, or uncomfortable to engage with, find the compelling human narrative inside them, and turn that complexity into something an average person can understand—and make it bingeworthy to them. I get the information and logistics and histories and complicated science across–but I do it through the syntactic sugar of fun analogies and a good human-centered story.</p>
+      <p>These gripping, human-centered stories are everywhere, in everything. From the semiconductor industry to the stapler. From the CDC&rsquo;s fentanyl crisis statistics to hospital administration and mismanagement. From water law and policy to—dare I say it—tax law.</p>
+      <p>Everything can become wildly interesting, engaging, and easy to understand. You just have to look hard enough to find the syntactically sweet story underneath it all.</p>
+      <p>The human story. The hook.</p>
+      <p>I have a technical mind—with degrees in organismal biology and computer science—and a storyteller&rsquo;s soul. Let me help you find the stories at the heart of your industry or NGO and make it impossible for the public and government not to root for you!</p>
+      </div>
+
+      <!-- Vertical column of supporting photos, sitting alongside the story
+           text — same .press-frame bordered-panel treatment used for every
+           other photo on the site, with a caption directly beneath each one
+           (same convention as .clip-note on live-action.html). -->
+      <div class="podcast-figures">
+        <figure class="podcast-figure">
+          <div class="press-frame">
+            <img src="media/podcast/kevin.png" alt="Kevin Fedarko">
+          </div>
+          <figcaption>Kevin Fedarko, New York Times bestselling author and journalist, interviewed for We Are Rivers.</figcaption>
+        </figure>
+        <figure class="podcast-figure">
+          <div class="press-frame">
+            <img src="media/podcast/awalk.png" alt="A Walk in the Park by Kevin Fedarko">
+          </div>
+          <figcaption>A Walk in the Park — New York Times bestselling book that cited We Are Rivers for its research.</figcaption>
+        </figure>
+        <figure class="podcast-figure">
+          <div class="press-frame">
+            <img src="media/podcast/mark.png" alt="Mark Dubois">
+          </div>
+          <figcaption>Mark Dubois, renowned environmentalist, interviewed for We Are Rivers.</figcaption>
+        </figure>
+        <figure class="podcast-figure">
+          <div class="press-frame">
+            <img src="media/podcast/ken.png" alt="Ken Salazar">
+          </div>
+          <figcaption>Ken Salazar, former U.S. Secretary of the Interior under the Obama administration, interviewed for an article.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="classes.html">Classes</a>
+          <a href="about.html">About</a>
+          <a href="index.html">Home</a>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="film.html">Film Production</a>
+          <a href="podcasts.html">Podcasts</a>
+          <a href="articles.html">Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+19703190560">(970) 319-0560</a>
+          <a href="mailto:alewis@ripplehouse.media">alewis@ripplehouse.media</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ripple House</span>
+      <span>Built as a static site</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,3690 @@
+/* ==========================================================================
+   RIPPLE HOUSE — a placeholder studio brand for this clone.
+   Swap the name, palette values, and copy for your own site.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,500&family=Work+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root{
+  /* ---- color ---- */
+  --ink:        #100D0A;   /* warm near-black, like a closed reel canister */
+  --ink-soft:   #1A1510;
+  --panel:      #221B14;
+  --panel-2:    #2A221A;
+  --parchment:  #F3EAD9;   /* aged paper */
+  --parchment-70: rgba(243,234,217,.7);
+  --parchment-45: rgba(243,234,217,.45);
+  --brass:      #C9A02A;   /* instrument brass */
+  --brass-light:#E7C766;
+  --rust:       #B65B3D;   /* VU-meter red-orange, used sparingly */
+  --fog:        #93A0A8;   /* muted atmosphere blue-grey */
+  --rose:       #D98FC4;   /* dusty rose/blush — the MISSION section's accent, echoing the pink reference material without breaking from the warm brass/rust palette */
+  --rose-light: #F0C3DE;
+  --rose-ring:  #A42D82;   /* same hue as --rose, just darker/more saturated — used only for the ripple-rings motif so it reads clearly against the panel background */
+  --line:       rgba(243,234,217,.14);
+  --line-strong:rgba(243,234,217,.28);
+
+  /* ---- type ---- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Work Sans', -apple-system, Segoe UI, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  /* classic screenplay/typewriter feel — used ONLY on the "Ripple House"
+     wordmark, the nav menu, and the "entertainment powering empathy"
+     caption; --font-mono (IBM Plex Mono) above is untouched and still
+     used everywhere else on the site (footer, tape counter, track list,
+     contact drawer, etc). */
+  --font-typewriter: Courier, "Courier New", monospace;
+
+  /* ---- misc ---- */
+  --nav-h: 84px;
+  --ease: cubic-bezier(.22,.7,.2,1);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+html,body{ margin:0; padding:0; }
+
+body{
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img{ max-width:100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family: inherit; cursor:pointer; }
+input,textarea{ font-family: inherit; }
+
+::selection{ background: var(--brass); color: var(--ink); }
+
+.container{
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 640px){
+  .container{ padding: 0 20px; }
+}
+
+/* ---- film-grain overlay, used on hero/dark sections ---- */
+.grain{
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: .06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before{
+  content: "";
+  width: 22px; height: 1px;
+  background: var(--brass-light);
+  display:inline-block;
+}
+
+h1,h2,h3,h4{
+  font-family: var(--font-display);
+  font-weight: 500;
+  color: var(--parchment);
+  margin: 0 0 .4em;
+  letter-spacing: -.01em;
+}
+h1{ font-size: clamp(2.6rem, 6vw, 5rem); line-height: 1.03; font-weight: 400; }
+h2{ font-size: clamp(1.9rem, 3.6vw, 3rem); line-height: 1.08; }
+h3{ font-size: clamp(1.3rem, 2vw, 1.7rem); }
+
+p{ color: var(--parchment-70); margin: 0 0 1em; }
+p.lede{ font-size: 1.15rem; color: var(--parchment-70); max-width: 60ch; }
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 15px 26px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--parchment);
+  background: transparent;
+  transition: all .35s var(--ease);
+  white-space: nowrap;
+}
+.btn:hover{ border-color: var(--brass-light); color: var(--brass-light); }
+.btn.btn-solid{
+  background: var(--brass);
+  border-color: var(--brass);
+  color: var(--ink);
+}
+.btn.btn-solid:hover{ background: var(--brass-light); border-color: var(--brass-light); color: var(--ink); }
+.btn svg{ width: 14px; height: 14px; }
+
+/* ==========================================================================
+   NAV
+   ========================================================================== */
+.site-nav{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  height: var(--nav-h);
+  display:flex; align-items:center;
+  background: linear-gradient(to bottom, rgba(16,13,10,.85), rgba(16,13,10,0));
+  transition: background .4s var(--ease);
+  /* No border-bottom here (not even a "transparent" one) — a declared
+     border, regardless of its color, gets its own edge/anti-aliasing pass
+     where it meets this semi-transparent gradient background, which was
+     rendering as a persistent hairline seam along the bar's bottom edge
+     (visible once the bar had settled/faded in, even without scrolling).
+     Omitting the border property altogether removes that seam outright,
+     without altering the bar's height, background, blur, or timing. */
+}
+/* Desktop/tablet: the nav photo (.brand-logo, ~88px at full size) was
+   taller than the 84px bar and touched the very top of the window. The bar
+   is 20px taller here so the centered photo gets ~8px of breathing room
+   above it (and the solid is-scrolled background still fully contains
+   it). Phones (<=640px) keep the original height — the photo is much
+   smaller there and already clears the top edge. */
+@media (min-width: 641px){
+  .site-nav{ height: calc(var(--nav-h) + 20px); }
+}
+.site-nav.is-scrolled{
+  background: rgba(16,13,10,.92);
+  backdrop-filter: blur(10px);
+}
+.site-nav .container{
+  display:flex; align-items:center; justify-content:space-between;
+  /* Override the shared .container's 1240px reading-width cap (used
+     elsewhere for footer/section content) — the nav must hug the TRUE
+     viewport edges, independent of the cinematography reel's width/position,
+     with equal margins from the left and right edges of the screen at any
+     window size. Leaves the inherited "padding: 0 32px" as that margin. */
+  max-width: none;
+}
+.brand{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--parchment);
+  letter-spacing: .01em;
+}
+/* scoped to the nav specifically (not .footer-brand's .brand) — sized up to
+   match the reference screenshot's proportions for the wordmark. Sizes are
+   1.5x the prior clamp(1.7rem, 2.9vw, 2.45rem).
+   Same typeface treatment as the home page's "Dedicated to..." heading
+   (.mission-heading, which inherits the shared h1-h4 rule): Fraunces
+   (--font-display), weight 500, upright, -.01em tracking — in the site's
+   yellow accent (--brass-light). Size and position are unchanged. */
+.site-nav .brand{
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: -.01em;
+  color: var(--brass-light);
+  font-size: clamp(2.55rem, 4.35vw, 3.675rem);
+}
+.brand span{ color: var(--brass-light); font-style: normal; }
+
+/* Logo + "Ripple House" lockup, upper-left of the nav. Same viewport-edge
+   positioning/margin as before — this just groups the logo and the
+   existing .brand text inside the link that used to just be the text.
+   Vertically centers the two against each other; sizing keeps the logo
+   proportionate to (not larger than) the wordmark's own font-size. Its
+   entrance timing (transition + body.intro-pending gate) lives with the
+   rest of the INTRO rules further down, right next to .site-nav .brand's —
+   intentionally identical values, so the two move together exactly. */
+.brand-lockup{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-logo{
+  /* matches .site-nav .brand's font-size 1:1, so the mark scales in step
+     with the wordmark at every viewport width instead of just at one
+     breakpoint */
+  /* 1.5x the wordmark's font-size (was 1:1) — the nav mark is now the
+     media/oscars.png photo, shown at 1.5x the old logo's size. Still
+     scales in step with the wordmark at every viewport width. */
+  height: clamp(3.825rem, 6.525vw, 5.5125rem);
+  width: auto; /* native aspect ratio preserved — never stretched/squashed */
+  flex: none;
+}
+
+/* wraps the toggle + links as one unit so the intro's slide-in-from-right
+   animation (see the INTRO rules) can move them together */
+.nav-controls{
+  display:flex; align-items:center;
+}
+
+.nav-links{
+  display:flex; align-items:center; gap: clamp(28px, 3.2vw, 48px);
+}
+.nav-links a{
+  font-family: var(--font-typewriter);
+  /* sized up (from a flat 12.5px) to match the reference screenshot's
+     proportions for the nav — scales with the viewport like the brand does.
+     Nudged a touch larger than the IBM Plex Mono value below it used to be —
+     Courier's x-height reads a little lighter/smaller at the same size — to
+     keep the menu balanced against the "Ripple House" wordmark. */
+  font-size: clamp(14px, 1.5vw, 22px);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--parchment-70);
+  position: relative;
+  padding: 6px 0;
+}
+.nav-links a:hover{ color: var(--parchment); }
+.nav-links a.is-active{ color: var(--brass-light); }
+.nav-links a.nav-cta{
+  color: var(--ink);
+  background: var(--brass);
+  padding: 10px 18px;
+  border-radius: 999px;
+}
+.nav-links a.nav-cta:hover{ background: var(--brass-light); color: var(--ink); }
+
+/* "Work" dropdown — hover on desktop (also :focus-within for keyboard users),
+   always-expanded inline on mobile (see the 860px media query below) */
+.has-submenu{ position: relative; }
+.nav-parent{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.submenu-caret{
+  width: 6px; height: 6px;
+  flex: none;
+  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -3px;
+  transition: transform .25s var(--ease);
+}
+.has-submenu:hover .submenu-caret,
+.has-submenu:focus-within .submenu-caret{
+  transform: rotate(225deg);
+}
+.submenu{
+  position: absolute;
+  top: 100%; right: 0;
+  z-index: 10;
+  min-width: 200px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--ink-soft);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  box-shadow: 0 24px 48px -20px rgba(0,0,0,.7);
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+}
+.submenu a{
+  display: block;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+.submenu a:hover{ background: var(--panel); color: var(--parchment); }
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ACTIVE STATE — Work/Accolades: reuses two colors that already carry this
+   exact meaning elsewhere on the site, rather than introducing anything new.
+   The submenu item matching the current page already turns
+   var(--brass-light) via the generic ".nav-links a.is-active" rule above —
+   is-active is added by the "Active nav link" logic in main.js to every
+   .nav-links link whose href matches the current page, submenu links
+   included — so nothing new was needed for that half.
+   What IS added here is the parent ("Work"/"Accolades") turning
+   var(--rose) — the same pink already used as a text color elsewhere (see
+   .mission-heading) — whenever one of its OWN submenu links carries
+   .is-active. :has() is what makes this automatic for both dropdowns off
+   one rule, with no per-page hardcoding and no JS changes. This selector's
+   specificity is intentionally high enough to also beat the plain
+   ".nav-links a:hover" rule, so the pink persists through hover — matching
+   how .is-active already outlasts hover on the top-level links above. */
+.has-submenu:has(> .submenu a.is-active) > .nav-parent{
+  color: var(--rose);
+}
+
+.nav-toggle{
+  display:none;
+  width: 40px; height: 40px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+}
+.nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+  content:"";
+  position:absolute;
+  left: 10px; right: 10px;
+  height: 1px;
+  background: var(--parchment);
+  transition: transform .3s var(--ease), opacity .3s var(--ease);
+}
+.nav-toggle span{ top: 19px; }
+.nav-toggle span::before{ top: -6px; }
+.nav-toggle span::after{ top: 6px; }
+.nav-toggle.is-open span{ background: transparent; }
+.nav-toggle.is-open span::before{ transform: translateY(6px) rotate(45deg); }
+.nav-toggle.is-open span::after{ transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 860px){
+  .nav-links{
+    position: fixed;
+    top: var(--nav-h); left: 0; right: 0; bottom: 0;
+    background: var(--ink);
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s var(--ease), transform .3s var(--ease);
+  }
+  .nav-links.is-open{ opacity:1; transform: translateY(0); pointer-events:auto; }
+  .nav-links a{ font-size: 15px; }
+  .nav-toggle{ display:block; }
+  /* no hover on touch — the submenu is just always expanded under "Work" */
+  .submenu{
+    position: static;
+    align-items: center;
+    margin-top: 14px;
+    padding: 0;
+    gap: 14px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .submenu a{ padding: 0; font-size: 13px; color: var(--parchment-45); }
+  .submenu-caret{ display: none; }
+}
+
+/* ==========================================================================
+   NAV — iPhone/mobile-only refinements (≤640px)
+   The 860px block above builds the shared tablet+phone hamburger nav
+   (fixed full-screen menu, always-expanded submenus) — everything here is
+   scoped one breakpoint narrower and only touches the nav, so nothing
+   above 640px (including tablet-portrait, e.g. iPad at 768px) is affected
+   by any rule in this block; that range keeps exactly the appearance
+   defined above untouched.
+   Two things read poorly at true phone widths specifically:
+   1) The wordmark's own clamp() (".site-nav .brand", near the top of the
+      NAV rules) has a 2.55rem floor that 4.35vw drops below well above
+      640px, so on an iPhone it renders at a fixed ~41px no matter how
+      narrow the screen gets, crowding the toggle button instead of
+      scaling down with it. This gives phones their own clamp with a
+      lower floor; the logo mirrors it 1:1 exactly as it already does at
+      every other size (see .brand-logo's own comment above).
+   2) The Work/Accolades parent label currently inherits the exact same
+      15px/--parchment-70 styling as a real link (only .submenu a gets an
+      explicit dimmed/smaller treatment in the 860px block), so the one
+      non-navigating item in the list is visually the MOST prominent —
+      backwards from its role, and part of why the grouping reads as a
+      flat, ambiguous list rather than a heading with items under it.
+      This adds a hairline top rule to visually separate each parent+
+      children cluster from the plain links around it, and demotes the
+      parent label to a small, quiet heading (reusing the existing
+      --parchment-45 tone already used for secondary text elsewhere) while
+      giving its children the more prominent, readable treatment that
+      matches their being the actual destinations. Colors/fonts are all
+      existing site values — nothing new is introduced. The higher-
+      specificity ACTIVE STATE rule above (.has-submenu:has(...) .nav-parent)
+      still wins over this default color whenever a child is the active
+      page, so that pink highlighting is unaffected. */
+@media (max-width: 640px){
+  .site-nav .brand{ font-size: clamp(1.3rem, 6.5vw, 1.85rem); }
+  .brand-logo{ height: clamp(1.95rem, 9.75vw, 2.775rem); } /* 1.5x the phone wordmark size */
+  .brand-lockup{ gap: 8px; }
+
+  .has-submenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 14px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .nav-links a.nav-parent{
+    font-size: 11px;
+    letter-spacing: .16em;
+    color: var(--parchment-45);
+    cursor: default;
+  }
+  .nav-links a.nav-parent:hover{ color: var(--parchment-45); }
+  .submenu{ margin-top: 0; gap: 16px; }
+  .submenu a{ font-size: 14px; color: var(--parchment-70); }
+}
+
+/* tape-counter scroll readout — signature element */
+.tape-counter{
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 400;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  color: var(--parchment-45);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+.tape-counter .dot{
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--rust);
+  box-shadow: 0 0 8px var(--rust);
+}
+@media (max-width: 640px){ .tape-counter{ display:none; } }
+
+/* ==========================================================================
+   HERO — full-bleed background reel, centered 70%-width overlay video,
+   caption + awards/logo scroller in the space below it.
+   ========================================================================== */
+.hero{
+  position: relative;
+  height: 100vh;
+  min-height: 560px;
+  display:flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+/* full-bleed autoplaying/muted background reel — fades in from black over .5s,
+   freezes on its last frame once it finishes, then dims by exactly 20%
+   brightness over exactly 2.5s, in lockstep with the "Ripple House" entrance
+   (see js/main.js beginEntrance() and the .site-nav .brand rule below). */
+.hero-bg-video{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0;
+  filter: brightness(1);
+  /* 1.75s fade-in from black on page load (3.5x the original .5s) */
+  transition: opacity 1.75s ease, filter 2.5s ease;
+}
+.hero-bg-video.is-ready{ opacity: 1; }
+.hero-bg-video.is-dimmed{ filter: brightness(.8); }
+.hero-bg-video video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+  pointer-events: none;
+}
+/* ---------- HERO BACKGROUND QUOTE ----------
+   Replaces the old full-bleed banner video. It lives inside .hero-bg-video
+   so it inherits that layer's exact behavior unchanged: .5s fade-in from
+   black (.is-ready), 20% dim over 2.5s at t=0 of the entrance (.is-dimmed),
+   and instant-on under body.intro-skip. js/main.js splits the sentence into
+   .hq-word spans and adds .is-animating, which staggers each word in
+   (fade + rise + de-blur); .is-complete shows everything settled with no
+   motion (repeat visits). The brass underline draws in after the last word.
+   Fraunces light, parchment on ink — the site's existing display type and
+   palette; "human story" picks up the brass accent. */
+.hero-bg-quote{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 24px) clamp(24px, 7vw, 120px) 48px;
+  /* The full set2 photo collage (on set + in the color suite) behind the
+     opening quote. "cover" fills the screen with the least possible
+     cropping for the window's shape (on a wide screen only a little is
+     trimmed top/bottom; on a tall phone screen the sides are trimmed).
+     A light ink veil keeps the photos vivid but calmer behind the words,
+     and the words get a text shadow (see .hero-quote-text). This whole
+     layer fades out at t=1.000s of the entrance, exactly as the page's
+     color-suite background fades in (.hero-bg-video.is-fading-out +
+     body.is-bg-revealed). */
+  background:
+    linear-gradient(rgba(16,13,10,.42), rgba(16,13,10,.42)),
+    var(--ink) url("../media/set2_intro.jpg") center / cover no-repeat;
+}
+.hero-quote{
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  max-width: min(1150px, 100%);
+  text-align: center;
+}
+/* Soft dark shadow pooled behind the whole quote (in addition to the
+   letters' own text-shadow) so it reads clearly over the busy intro
+   photo. Part of .hero-quote, so it fades out together with the words. */
+.hero-quote::before{
+  content: "";
+  position: absolute;
+  inset: -22% -14%;
+  z-index: -1;
+  background: radial-gradient(ellipse closest-side at center, rgba(8,6,4,.82) 0%, rgba(8,6,4,.72) 55%, rgba(8,6,4,0) 100%);
+  pointer-events: none;
+}
+.hero-quote-text{
+  position: relative; /* stacks the live words above the shadow copy */
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.9rem, 4.4vw, 4.4rem);
+  line-height: 1.18;
+  letter-spacing: -0.01em;
+  color: var(--parchment);
+  text-wrap: balance;
+  /* Heavy text shadow that keeps the quote readable over the intro photo:
+     tight dark edge + wide soft halo, layered. Faded in for the whole
+     quote as it finishes (see .is-ruled below), never per word, so the
+     words' entrance stays smooth. */
+  --hq-shadow:
+    0 2px 4px rgba(0,0,0,1), 0 2px 10px rgba(0,0,0,1),
+    0 4px 24px rgba(0,0,0,.95), 0 0 48px rgba(0,0,0,.9);
+}
+/* The heavy shadow lives on a separate, invisible copy of the quote placed
+   exactly behind it (.hero-quote-shadow, added by js/main.js). That copy is
+   painted once; only its opacity fades in as the last words land
+   (.is-ruled), which the browser can do smoothly. Animating the shadow on
+   the live words — per word, or all at once — forced a full redraw of the
+   huge blurred shadows every frame and made the animation stutter. While
+   the words come in, the soft dark pool behind the quote
+   (.hero-quote::before) keeps them readable. */
+.hero-quote-shadow{
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  color: transparent !important;
+  text-shadow: var(--hq-shadow);
+  opacity: .001; /* effectively invisible, but lets the browser draw it up front instead of mid-animation */
+  transition: opacity 1s ease;
+  will-change: opacity;
+  pointer-events: none;
+  user-select: none;
+}
+.hero-quote-shadow em{ color: transparent; }
+.hero-quote.is-ruled .hero-quote-shadow,
+.hero-quote.is-complete .hero-quote-shadow{ opacity: 1; }
+body.intro-skip .hero-quote-shadow{ transition: none; }
+.hero-quote-text em{
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brass-light);
+}
+.hero-quote .hq-word{
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(.35em);
+  filter: blur(3px);
+}
+/* Fades out at the exact moment the overlay reel starts fading in, with
+   the identical transition (opacity 1s ease — see .hero-overlay
+   .video-frame), so one cross-fades into the other. */
+.hero-quote{ transition: opacity 1s ease; }
+.hero-quote.is-fading-out{ opacity: 0; }
+body.intro-skip .hero-quote{ transition-duration: 0s; }
+.hero-quote.is-animating .hq-word{
+  animation: hq-word-in 1.1s var(--ease) forwards;
+  animation-delay: var(--hq-delay, 0s);
+}
+.hero-quote.is-complete .hq-word{
+  opacity: 1; transform: none; filter: none;
+}
+/* One smooth fade + rise + focus per word (single easing curve, as
+   originally built). The starting blur is a light 3px (was 8px) so words
+   don't read as out of focus for long, without the stepped look a
+   mid-animation keyframe caused. */
+@keyframes hq-word-in{
+  to{ opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.hero-quote-rule{
+  box-shadow: 0 2px 10px rgba(0,0,0,.95), 0 4px 24px rgba(0,0,0,.85);
+  display: block;
+  width: min(220px, 40%);
+  height: 2px;
+  margin: clamp(22px, 3vw, 40px) auto 0;
+  background: var(--brass);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 1.2s var(--ease);
+}
+.hero-quote.is-ruled .hero-quote-rule,
+.hero-quote.is-complete .hero-quote-rule{ transform: scaleX(1); }
+body.intro-skip .hero-quote-rule{ transition-duration: 0s; }
+@media (prefers-reduced-motion: reduce){
+  .hero-quote .hq-word{ transform: none; filter: none; }
+  .hero-quote.is-animating .hq-word{ animation-name: hq-word-fade; animation-duration: .6s; }
+  .hero-quote-rule{ transition: none; }
+}
+@keyframes hq-word-fade{ to{ opacity: 1; } }
+
+.hero-scrim{
+  position: absolute; inset: 0; z-index: 1;
+  background:
+    linear-gradient(to bottom, rgba(16,13,10,.55) 0%, rgba(16,13,10,.25) 40%, rgba(16,13,10,.65) 100%);
+}
+.hero .grain{ z-index: 1; }
+
+/* speaker glyph — a speaker cone that always shows, plus two toggled overlay
+   groups: an "X" (muted, the default — video autoplays muted) and sound-wave
+   arcs (shown once unmuted via .is-on, toggled by js/main.js). Used by the
+   overlay's mute button (the hero background itself has no controls at all —
+   it plays permanently muted). */
+.mute-icon{
+  width: 22px; height: 22px; flex: none;
+}
+.mute-icon-muted,
+.mute-icon-on{
+  transition: opacity .15s ease;
+}
+.mute-icon-on{ opacity: 0; }
+.mute-icon.is-on .mute-icon-muted{ opacity: 0; }
+.mute-icon.is-on .mute-icon-on{ opacity: 1; }
+
+.hero-inner{
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--nav-h) + 20px) 24px 40px;
+}
+.hero-overlay{
+  /* sized to match the reference screenshot's proportions: the overlay clip
+     reads at roughly 70% of the window's width there, and is allowed to grow
+     much larger on wide screens than the old 1100px cap permitted. */
+  /* 70vw as before, but capped by viewport height so the About clip's
+     taller (608/315) frame always leaves room below it for the caption +
+     awards strip on short/laptop screens. */
+  width: min(70vw, calc((100vh - var(--nav-h) - 260px) * 608 / 315));
+  min-width: 320px;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Just the video-frame lives here now — the caption and the awards/logo
+     scroller moved to .hero-below-reel (a sibling, below), so they can be
+     vertically centered in the space below the reel instead of stacked
+     directly under it. js/main.js still adds .is-visible here at t=1.000s
+     so the rule below can key off it. */
+}
+/* the overlay is autoplaying/decorative (no user controls, no title) — block
+   pointer events so hovering it can never trigger any browser video chrome */
+.hero-overlay .video-frame iframe,
+.hero-overlay .video-frame video{ pointer-events: none; }
+/* The overlay now plays media/about_web.mp4 — the same clip as the About
+   page — framed with that page's exact crop (12% off each side, 15% off
+   top and bottom of the native 16:9 frame; see .about-video-frame near
+   the ABOUT section for the full math), so it reads identically on both
+   pages. The box is sized to the cropped ratio (608/315) and the video is
+   over-sized on each axis and re-centered to produce the crop, with
+   object-fit:fill applying the resulting uniform scale — no distortion.
+   Also: no frame/outline around the overlay video — just the raw clip.
+   Hidden until t=1.000s in js/main.js beginEntrance() (deliberately
+   overlapping the tail of the brand/dim/nav animation), then fades in
+   over exactly 1s on its own. */
+/* 88% of the overlay column (was 80%; enlarged by 10%). The caption +
+   awards strip below stay exactly where the full-size reel put them, and
+   js/main.js positionBelowReel() then shifts this smaller reel vertically
+   so it sits centered between the bottom of the nav and the top of the
+   caption. Keep REEL_SCALE in main.js in sync with this percentage. */
+.hero-overlay .video-frame{
+  width: 88%;
+  aspect-ratio: 608 / 315;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.hero-overlay .video-frame video{
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  width: 131.5789%;  /* 100% / 0.76 — 12%-per-side crop, same as About */
+  height: 142.8571%; /* 100% / 0.70 — 15%-per-side crop, same as About */
+  transform: translate(-50%, -50%);
+  object-fit: fill;
+}
+.hero-overlay.is-visible .video-frame{
+  opacity: 1;
+}
+.hero-overlay .video-frame::before{ display: none; }
+
+/* manual unmute button on the overlay video (it plays muted by default) —
+   sized up and given more contrast so it reads clearly as a control, while
+   staying anchored to the video's own lower-right corner (.video-frame is
+   the positioning parent, not the viewport) */
+.overlay-mute-toggle{
+  position: absolute;
+  bottom: 16px; right: 16px;
+  z-index: 5;
+  width: 52px; height: 52px;
+  display: flex; align-items:center; justify-content:center;
+  background: rgba(16,13,10,.68);
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--parchment);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px -6px rgba(0,0,0,.6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease, border-color .3s ease, color .3s ease, background .3s ease;
+}
+.hero-overlay.is-visible .overlay-mute-toggle{ opacity: 1; pointer-events: auto; }
+.overlay-mute-toggle:hover{ border-color: var(--brass-light); color: var(--brass-light); }
+
+/* "Entertainment Powering Empathy" caption — no fade of its own; it's
+   revealed by the typewriter effect itself (js/main.js typewriter()),
+   which starts at t=2.125s (.125s after the video above finishes fading
+   in). .is-typing is added the instant typing starts, so the caption + its
+   cursor appear together right as the first character is typed. */
+.hero-link{
+  /* stacks in front of .awards-band — see the AWARDS / LOGO SCROLLER rules
+     below, where this now lives alongside the scroller inside
+     .hero-below-reel */
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-typewriter);
+  font-style: italic;
+  /* sized up to match the reference screenshot's proportions for the caption
+     under the overlay video. Sizes are 1.5x the prior
+     clamp(1.05rem, 2vw, 1.7rem). */
+  font-size: clamp(1.575rem, 3vw, 2.55rem);
+  color: var(--parchment);
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 4px;
+  text-align: center;
+  /* keeps the caption legible over the dimmed but still-busy scrolling
+     images behind it (.awards-band) — a soft, dark, cinematic shadow
+     rather than a hard/graphic one, so it still reads as part of the same
+     clean aesthetic. Inherits down to .typed-text/.typed-cursor too.
+     2x as strong as the prior 0 2px 10px rgba(16,13,10,.7), 0 1px 3px
+     rgba(16,13,10,.9) — offsets and blur radii doubled, and opacity
+     doubled up to its 1.0 ceiling (both layers were already close to
+     opaque, so the extra spread/reach is what reads as "stronger" here). */
+  text-shadow: 0 4px 20px rgba(16,13,10,1), 0 2px 6px rgba(16,13,10,1);
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-link.is-typing{
+  opacity: 1;
+  pointer-events: auto;
+}
+.hero-link:hover{ color: var(--brass-light); border-color: var(--brass-light); }
+
+/* blinking typewriter cursor — becomes visible + starts blinking the instant
+   typing begins, and keeps blinking indefinitely (including after typing
+   finishes) since nothing ever removes .is-visible or stops the animation. */
+.typed-cursor{
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: -0.15em;
+  background: currentColor;
+  opacity: 0;
+}
+.typed-cursor.is-visible{
+  opacity: 1;
+  animation: typed-blink 1s step-end infinite;
+}
+@keyframes typed-blink{
+  50%{ opacity: 0; }
+}
+
+.video-frame{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--panel);
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.7);
+}
+.video-frame::before{
+  content: "";
+  position:absolute; inset:0;
+  border: 10px solid var(--ink);
+  z-index: 3;
+  pointer-events:none;
+  opacity: .4;
+}
+.video-frame iframe{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+}
+.video-frame video{
+  position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover;
+}
+.video-frame .frame-tag{
+  position:absolute; top: 14px; left: 14px; z-index:4;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  background: rgba(16,13,10,.6);
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.video-frame .frame-tag .dot{
+  width:6px; height:6px; border-radius:50%;
+  background: var(--rust); display:inline-block; margin-right:6px;
+  box-shadow: 0 0 6px var(--rust);
+}
+
+@media (max-width: 900px){
+  .hero-overlay{ width: 82vw; }
+}
+@media (max-width: 640px){
+  .hero-overlay{ width: 92vw; }
+}
+
+/* ==========================================================================
+   INTRO: while body carries .intro-pending (see index.html + js/main.js),
+   the ONLY visible thing on the page is the full-bleed background reel, at
+   its normal brightness — nav bar, brand, tape counter, scrim and grain all
+   stay invisible and non-interactive, and the reel is never
+   dimmed. The navigation menu (.nav-controls) is gated by .intro-pending
+   like the rest of the chrome, but keeps its own 2.5s duration so it stays
+   in lockstep with the brand (see below).
+
+   The background reel freezing on its last frame is the ONLY trigger for
+   what happens next (js/main.js beginEntrance(), called the instant it
+   pauses — this is t=0.000s below). .intro-pending is removed at that exact
+   moment. The precise, requested part of the timeline is:
+     t=0.000s  "Ripple House" AND the navigation menu (see .nav-controls
+               below) start fading in together + the background starts
+               dimming by 20% — all three run for EXACTLY 2.5s, starting and
+               ending together at t=2.500s.
+     t=1.000s  (1.5s before the brand/nav/dim above finish — the overlap is
+               intentional) the overlay video (see .hero-overlay/.video-frame
+               above) starts fading in, over exactly 1s, finishing at
+               t=2.000s; the typewriter caption then starts at t=2.125s
+               (see js/main.js).
+   The tape counter, scrim and grain are triggered at that same t=0.000s
+   moment (removing .intro-pending) but keep their original, less strict
+   1.2s fade — only the brand and the nav menu were tightened to the exact
+   durations this sequence requires. (The awards/logo scroller behind the
+   caption has its own separate, later t=2.125s trigger — see the AWARDS /
+   LOGO SCROLLER rules below.)
+   ========================================================================== */
+.site-nav,
+.tape-counter,
+.hero-scrim,
+.hero .grain{
+  transition: opacity 1.2s ease;
+}
+/* brand ("Ripple House") fades in in place (no slide) over exactly 2.5s,
+   in lockstep with the background dim and the nav menu below */
+.site-nav .brand{
+  transition: opacity 2.5s ease;
+}
+/* logo rides the exact same transition as the brand text above — identical
+   duration/easing/gating, no independent timing — so the lockup fades in
+   as one visual unit */
+.brand-logo{
+  transition: opacity 2.5s ease;
+}
+/* nav links + mobile menu toggle slide in from the right, as one unit —
+   same 2.5s duration/rate as the brand above, both gated by .intro-pending
+   and starting at the same t=0.000s, so they finish together at t=2.500s */
+.nav-controls{
+  transition: opacity 2.5s ease, transform 2.5s ease;
+}
+body.intro-pending .site-nav,
+body.intro-pending .tape-counter,
+body.intro-pending .hero-scrim,
+body.intro-pending .hero .grain{
+  opacity: 0;
+  pointer-events: none;
+}
+body.intro-pending .site-nav .brand{
+  opacity: 0;
+}
+body.intro-pending .brand-logo{
+  opacity: 0;
+}
+body.intro-pending .nav-controls{
+  opacity: 0;
+  transform: translateX(36px);
+  pointer-events: none;
+}
+
+/* SKIP: a repeat Home visit within the same site session (see the inline
+   <script> + sessionStorage in index.html, and skipIntro in js/main.js)
+   lands with body.intro-skip instead of body.intro-pending from before
+   first paint, so none of the opacity/transform rules above ever apply —
+   the chrome is simply already visible. The one thing that DOES still
+   happen post-paint on a skip visit is js/main.js adding is-ready/
+   is-dimmed to the background reel and is-visible to the overlay
+   video-frame/mute button (beginEntrance() runs the same class changes on
+   every visit) — this block just collapses those specific transitions to
+   0s so that "already visible" reads as instant rather than as a replay
+   of the fade/dim entrance, which is exactly what's being skipped. Every
+   transition property/value pair stays exactly as declared above/near
+   .hero-overlay .video-frame and .overlay-mute-toggle — only the duration
+   is overridden, and only while .intro-skip is present. */
+body.intro-skip .hero-bg-video,
+body.intro-skip .hero-overlay .video-frame,
+body.intro-skip .overlay-mute-toggle,
+body.intro-skip .site-nav,
+body.intro-skip .tape-counter,
+body.intro-skip .hero-scrim,
+body.intro-skip .hero .grain,
+body.intro-skip .site-nav .brand,
+body.intro-skip .brand-logo,
+body.intro-skip .nav-controls{
+  transition-duration: 0s;
+}
+
+/* ==========================================================================
+   BELOW THE REEL — caption + awards/logo scroller, vertically centered in
+   the space between the bottom of .video-frame and the bottom of the
+   viewport. .hero-below-reel spans the full viewport width (it's an
+   absolutely-positioned child of .hero-inner, so its own left/right:0 reach
+   the padding edge of .hero-inner regardless of .hero-inner's own padding —
+   i.e. true viewport width, not the ~70vw video column) and the full
+   remaining height (top is set in px by js/main.js positionBelowReel(),
+   which measures .video-frame's actual rendered bottom edge — recalculated
+   on load and on resize, since that edge shifts with the reel's responsive
+   aspect-ratio-driven size — bottom:0 is simply the bottom of .hero, which
+   is exactly 100vh, i.e. the viewport's bottom edge). Flex centering inside
+   this box is what puts both the caption and the scroller at the exact
+   midpoint of that space, both horizontally and vertically.
+   ========================================================================== */
+.hero-below-reel{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  /* top: set inline, in px, by js/main.js */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* the scroller is decorative; only the caption link below re-enables it */
+}
+
+/* AWARDS / LOGO SCROLLER — six press/award marks, dimmed and continuously
+   scrolling right-to-left behind the caption. Not visible/scrolling at all
+   until js/main.js adds .is-scrolling (at t=2.125s, the exact same instant
+   the typewriter above starts) — see startAwardsScroll(). */
+.awards-band{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.awards-enter{
+  /* idle/default position: fully past the right edge of the viewport, so
+     nothing is visible before .is-scrolling is added. animation-fill-mode
+     keeps it here (0% of the keyframes below) until triggered.
+     animation-duration is set inline, in px/s-derived seconds, by
+     js/main.js startAwardsScroll() — see that function for why: it has to
+     be computed per viewport width to hold a truly constant px/s speed
+     (100vw is a different pixel distance at every width, and a fixed
+     CSS duration can't compensate for that on its own). */
+  transform: translateX(100vw);
+}
+.is-scrolling .awards-enter{
+  animation-name: awards-enter-slide;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+@keyframes awards-enter-slide{
+  from{ transform: translateX(100vw); }
+  to{ transform: translateX(0); }
+}
+.awards-track{
+  display: flex;
+  align-items: center;
+  width: max-content;
+  /* no gap here — the trailing gap that belongs between the two .awards-set
+     copies lives INSIDE each set instead (its padding-right, below), so
+     both halves of the track are pixel-for-pixel identical widths and
+     translateX(-50%) below lands exactly on the seam between them */
+  filter: brightness(.55); /* uniform 45% dim (55% brightness) on the whole
+     strip at once — a filter, not opacity, so the logos' own colors stay
+     true rather than washing out against whatever's behind them */
+}
+/* animation-duration AND animation-delay are set inline by js/main.js too:
+   duration so the loop moves at the exact same px/s speed as the entrance
+   above (both are derived from the same fixed speed constant); delay so
+   the loop sits still — at its own translateX(0) resting state, which is
+   exactly where .awards-enter's slide leaves it — for precisely as long as
+   the entrance takes, then picks up the instant it ends. That hand-off is
+   what keeps this to ONE constant speed the whole time: only one of the
+   two transforms is ever actually moving at once, so their speeds are
+   never added together (which is what caused the old "fast entrance, slow
+   settle" effect this replaces). */
+.is-scrolling .awards-track{
+  animation-name: awards-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes awards-scroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); } /* exactly one (duplicated) set's width, incl. its trailing gap — seamless loop, no jump */
+}
+.awards-set{
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding-right: 56px; /* trailing gap before the next (possibly duplicate) set — see .awards-track note above */
+  flex: none;
+}
+.awards-logo{
+  display: block;
+  width: auto; /* native aspect ratio preserved — never stretched/squashed */
+  flex: none;
+}
+/* Per-logo heights are individually tuned (not a single shared height) so
+   the seven marks — which range from full-bleed wordmarks to small badges
+   with a lot of internal padding — read as roughly the same visual/ink
+   size rather than the same canvas size. brand (the Ripple House ripple
+   mark) is sized from the same corner-sampled ink-height method as the
+   rest — its ink fills 88.6% of the canvas, so 54px canvas yields the
+   same ~48px rendered ink height the other marks target. top, overall,
+   finalist and tsl were subsequently rescaled again relative to their own
+   prior sizes (top -> 50%, overall -> 200%, finalist -> 150%, tsl -> 150%);
+   brand was later doubled again (54px -> 108px); deadline and wescreen
+   are unchanged. width stays auto (see
+   .awards-logo above), so every logo's aspect ratio is preserved and it
+   stays center-aligned with the rest of the row via .awards-set's
+   align-items: center — same mechanism as every other logo here. Because
+   these rules key off shared classes (.awards-logo-top, etc.), every
+   repeated instance of a logo across both .awards-set copies picks up the
+   same size automatically — nothing instance-specific to keep in sync. */
+.awards-logo-deadline{ height: 90px; }
+.awards-logo-finalist{ height: 83.25px; }
+.awards-logo-overall{ height: 99px; }
+.awards-logo-top{ height: 82.5px; }
+.awards-logo-tsl{ height: 96px; }
+.awards-logo-wescreen{ height: 91.5px; }
+.awards-logo-brand{ height: 108px; } /* 2x its own prior size (54px -> 108px) */
+/* AR: an opaque square tile, so it's sized to match TSL, the other solid
+   square tile in the row. */
+.awards-logo-ar{ height: 96px; }
+/* Kinship: the source PNG has a transparent background and thin navy
+   lettering that would disappear against the dark, dimmed strip, so it
+   gets the same white tile the WeScreenplay / Top 3% / Finalist marks
+   carry in their artwork. Padding gives it the same breathing room those
+   tiles have around their text; the total height (border-box) sits in
+   the same range as those marks. */
+.awards-logo-kinship{
+  height: 90px;
+  padding: 10px 16px;
+  background: #fff;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .is-scrolling .awards-enter{ animation: none; transform: translateX(0); }
+  .is-scrolling .awards-track{ animation: none; }
+}
+
+/* ==========================================================================
+   SECTION SCAFFOLDING
+   ========================================================================== */
+section{ position: relative; }
+.section{ padding: 120px 0; }
+.section-tight{ padding: 80px 0; }
+.section-head{ max-width: 640px; margin-bottom: 56px; }
+.section-head.center{ margin-left:auto; margin-right:auto; text-align:center; }
+
+.divider{
+  height: 1px;
+  background: var(--line);
+  border: 0;
+  margin: 0;
+}
+
+/* Generic scroll-reveal utility — fades/rises an element in once, the first
+   time it scrolls into view (see the IntersectionObserver in js/main.js,
+   "Scroll reveal" block). Distinct from the hero's own entrance timeline,
+   which fires once on page load rather than on scroll. No-JS visitors get
+   it force-visible via the noscript rule at the top of index.html, since JS
+   is what adds .is-visible. */
+.reveal-on-scroll{
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .9s var(--ease), transform .9s var(--ease);
+}
+.reveal-on-scroll.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce){
+  .reveal-on-scroll{ opacity: 1; transform: none; transition: none; }
+}
+
+@media (max-width: 640px){
+  .section{ padding: 76px 0; }
+}
+
+/* ==========================================================================
+   FAQ (home)
+   ========================================================================== */
+.faq-list{ border-top: 1px solid var(--line); }
+.faq-item{ border-bottom: 1px solid var(--line); }
+.faq-q{
+  width: 100%;
+  display:flex; align-items:center; justify-content:space-between;
+  gap: 24px;
+  padding: 30px 0;
+  background: transparent;
+  border: 0;
+  color: var(--parchment);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+.faq-q .num{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--brass-light);
+  margin-right: 18px;
+}
+.faq-q .icon{
+  flex: none;
+  width: 28px; height: 28px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  position: relative;
+}
+.faq-q .icon::before,.faq-q .icon::after{
+  content:"";
+  position:absolute; left:50%; top:50%;
+  background: var(--parchment);
+  transform: translate(-50%,-50%);
+}
+.faq-q .icon::before{ width: 11px; height: 1px; }
+.faq-q .icon::after{ width: 1px; height: 11px; transition: transform .3s var(--ease), opacity .3s var(--ease); }
+.faq-item.is-open .faq-q .icon::after{ transform: translate(-50%,-50%) rotate(90deg); opacity:0; }
+.faq-item.is-open .faq-q{ color: var(--brass-light); }
+
+.faq-a{
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s var(--ease);
+}
+/* No longer capped at 68ch — answers now use the same full width as their
+   question (.faq-q is width:100% of the same .faq-item), so their left and
+   right edges line up exactly instead of the answer being a narrower
+   measure than the question above it. */
+.faq-a-inner{ padding: 0 0 30px; }
+.faq-a-inner p{ margin:0; }
+
+/* Font sizes only, 1.5x their prior values — no padding/margin/spacing
+   change intended. h2's margin-bottom is pinned to its own pre-increase
+   value (.4em of the ORIGINAL clamp, not the new larger one) so the gap
+   below "Common questions" doesn't grow along with the bigger text; every
+   other property here (padding on .faq-q/.faq-a-inner, the .num's
+   margin-right, etc.) was already a fixed px value, so it's already
+   unaffected by the font-size change. */
+.faq-section .eyebrow{ font-size: 18px; }
+.faq-section h2{ font-size: clamp(2.85rem, 5.4vw, 4.5rem); margin-bottom: clamp(.76rem, 1.44vw, 1.2rem); }
+.faq-section .faq-q{ font-size: clamp(1.65rem, 3vw, 2.1rem); }
+.faq-section .faq-q .num{ font-size: 18px; }
+.faq-section .faq-a-inner p{ font-size: 24px; }
+/* About page only: half the section's normal top padding (120px -> 60px,
+   from the shared .section rule), reducing the space between the About/
+   Passion/Experience column and this FAQ section — .faq-section only
+   appears on about.html, so this doesn't touch spacing on any other page. */
+.faq-section{ padding-top: 60px; }
+@media (max-width: 640px){
+  .faq-section{ padding-top: 38px; }
+}
+
+/* ==========================================================================
+   MISSION — a short "next chapter" note between the hero and the FAQ,
+   introducing Ripple House Media. Sits on its own panel band (same
+   background/hairline-border treatment as .cta-band below) so it reads as a
+   deliberate beat in the page rather than a continuation of the hero or a
+   template repeat of the FAQ. Built from the same primitives as the rest of
+   the page (.container, .eyebrow, h2, p.lede, .btn) with one addition: the
+   --rose/--rose-light accent (see :root) carries the reference material's
+   pink into this one section only — on the eyebrow, the heading, the CTA,
+   and a soft ripple-rings motif in the background that echoes the brand's
+   own concentric-ring logo. Everything else on the page is untouched.
+   Reveals with a gentle fade/rise the first time it's scrolled into view
+   (.reveal-on-scroll — see js/main.js) rather than animating on page load,
+   since — unlike the hero — it's never in the first viewport: the hero
+   above it is a full 100vh, so this section only appears once the visitor
+   scrolls past "entertainment powering empathy". */
+.mission{
+  /* halved from the original 120px/76px — see the matching mobile rule below */
+  padding: 60px 0;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  /* vertical clipping intentionally OFF — the ripple-rings/glow below are
+     full size (unchanged from before) and, now that the section is
+     shorter, can be taller than the section's own box. Letting them
+     overflow vertically means they bleed into the hero above and the FAQ
+     below rather than being cropped at this section's top/bottom edges.
+     overflow-x stays hidden: .mission-glow/.mission-rings already bleed
+     off the right edge by design (right:-180px/-120px), and clipping that
+     horizontally is what keeps it from widening the page/adding a
+     scrollbar — same behavior as before, just split per axis instead of
+     "overflow: hidden" clipping all four sides. Both decorative layers
+     stay pointer-events:none and z-index:0 (below .mission-inner's
+     z-index:1), so the overflow is purely visual and never sits above or
+     blocks real content in this or any neighboring section. */
+  /* overflow-x: clip (not "hidden") deliberately — pairing overflow-x:hidden
+     with overflow-y:visible gets silently converted by the browser to
+     overflow-y:auto, which still clips vertically (just without a visible
+     scrollbar) and would defeat the point. "clip" doesn't trigger that
+     conversion, so overflow-y stays genuinely visible. */
+  overflow-x: clip;
+  overflow-y: visible;
+}
+@media (max-width: 640px){
+  .mission{ padding: 38px 0; }
+}
+.mission-glow{
+  position: absolute;
+  top: 50%; right: -180px;
+  transform: translateY(-50%);
+  width: 620px; height: 620px;
+  border-radius: 50%;
+  /* darker/more saturated than the original rgba(217,143,196,.18) — same
+     hue (--rose-ring is --rose with lightness/saturation adjusted, not a
+     different color), just more visible against the panel background */
+  background: radial-gradient(circle, rgba(201,160,42,.16), rgba(201,160,42,0) 70%); /* --brass glow (was rose) */
+  pointer-events: none;
+  z-index: 0;
+}
+/* three concentric rings, staggered so they read as one continuous ripple
+   expanding outward and fading — a slow, ambient echo of the ripple-rings
+   mark in media/logo.png, not a literal reproduction of it. Animation
+   itself (timing/scale/movement) is unchanged; only the color/opacity
+   below were darkened for visibility. */
+.mission-rings{
+  position: absolute;
+  top: 50%; right: -120px;
+  transform: translateY(-50%);
+  width: 560px; height: 560px;
+  pointer-events: none;
+  z-index: 0;
+}
+.mission-rings .ring{
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--brass); /* was --rose-ring; gold to match the site's yellow accent */
+  opacity: 0;
+  animation: mission-ripple 7s var(--ease) infinite;
+}
+.mission-rings .ring-2{ animation-delay: 2.3s; }
+.mission-rings .ring-3{ animation-delay: 4.6s; }
+@keyframes mission-ripple{
+  0%{ transform: scale(.32); opacity: 0; }
+  18%{ opacity: .55; }
+  100%{ transform: scale(1); opacity: 0; }
+}
+/* No max-width of its own anymore — it now simply fills its .container,
+   the exact same shared element (1240px cap, centered via margin:0 auto,
+   32px page-edge padding) that the FAQ section's questions/answers and
+   every other section on the page already use. That's what makes this
+   section's content column land at the same width and the same left/right
+   edges as the Q&A section, and centered on the page like the rest of the
+   site — no custom sizing left here to drift out of sync with it. Only
+   width/alignment changed: font-size, wording, padding, margins and the
+   ripple-rings/glow decoration below are all untouched. */
+.mission-inner{
+  position: relative;
+  z-index: 1;
+}
+/* h2's default margin-bottom (.4em, from the shared h1–h4 rule) would grow
+   along with the larger font-size below and widen this gap — pinned in px
+   at its pre-increase value so spacing stays exactly as it was. */
+/* Cream heading with the key phrase ("finding the story") in the site's
+   yellow italic — the same treatment as "human story" in the home page's
+   opening quote. Was solid --rose. */
+.mission-heading{ color: var(--parchment); font-size: clamp(2.85rem, 5.4vw, 4.5rem); margin-bottom: 22px; }
+.mission-heading em{ font-style: italic; color: var(--brass-light); }
+/* p.mission-copy (element+class), not just .mission-copy, so this outranks
+   the earlier p.lede{font-size:1.15rem} rule of equal-or-higher specificity */
+p.mission-copy{ font-size: 1.725rem; margin-bottom: 34px; }
+/* FilmFreeway Bio button: the site's standard solid brass button
+   (.btn-solid), just at this section's larger size. Was pink (.btn-rose). */
+.btn.btn-mission{ font-size: 19.5px; }
+
+@media (max-width: 860px){
+  .mission-glow, .mission-rings{ width: 420px; height: 420px; right: -160px; }
+}
+@media (max-width: 640px){
+  .mission-glow, .mission-rings{ display: none; }
+}
+@media (prefers-reduced-motion: reduce){
+  .mission-rings .ring{ animation: none; opacity: .26; transform: scale(.7); }
+}
+
+/* ==========================================================================
+   CTA BAND
+   ========================================================================== */
+.cta-band{
+  padding: 100px 0;
+  text-align: center;
+  position: relative;
+  background: var(--panel);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.cta-band h2{ max-width: 18ch; margin: 0 auto 30px; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer{
+  padding: 70px 0 40px;
+  background: var(--ink);
+}
+.site-footer .container{
+  /* Override the shared .container's 1240px reading-width cap (used
+     elsewhere for Mission/FAQ/other section content) — the footer should
+     feel broader/more expansive than those sections, but not hug the true
+     viewport edges the way .site-nav .container does. This cap sits in a
+     middle ground: comfortably wider than the 1240px content sections on
+     typical desktop/laptop screens, while margin:auto (inherited from
+     .container) plus the existing "padding: 0 32px" (0 20px on mobile)
+     still produce equal, comfortable outer margins instead of edge-to-edge.
+     Below this cap (e.g. narrow windows), it falls back to the same
+     edge-to-edge-with-padding behavior as the sections above it. */
+  max-width: 1400px;
+}
+.footer-top{
+  display:flex; justify-content:space-between; align-items:flex-start;
+  gap: 40px; flex-wrap: wrap;
+  padding-bottom: 46px;
+}
+/* Footer text sizes are all 1.5x their prior values. Everything else here
+   (padding, gap, margin-top) was already a fixed px value and so is
+   unaffected by the font-size change — the one exception is .footer-brand
+   p's margin-bottom, which wasn't set here before and so fell through to
+   the shared p{margin:0 0 1em} rule; left alone, that 1em would have grown
+   right along with this p's new font-size and quietly widened the gap
+   below it, so it's pinned in px at its original (pre-increase) value. */
+/* Laid out horizontally so the footer isn't needlessly tall: the Site
+   links flow across in rows (instead of one long column of ten), with
+   Contact to the right. Everything wraps naturally on narrow screens. */
+.footer-top > .footer-cols{ flex: 1; }
+.footer-cols{ display:flex; justify-content: space-between; gap: 32px 70px; flex-wrap: wrap; }
+.footer-col{ display: flex; flex-direction: column; }
+.footer-col:first-child{
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 34px;
+  flex: 1 1 520px;
+  max-width: 860px;
+}
+.footer-col:first-child h4{ flex-basis: 100%; }
+.footer-col h4{
+  font-family: var(--font-mono);
+  font-size: 17.25px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  margin-bottom: 16px;
+}
+.footer-col a, .footer-col span{
+  display:block;
+  color: var(--parchment-70);
+  font-size: 21.75px;
+  padding: 5px 0;
+}
+.footer-col a:hover{ color: var(--parchment); }
+.footer-bottom{
+  display:flex; justify-content:space-between; flex-wrap: wrap; gap: 12px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 17.25px;
+  letter-spacing: .06em;
+  color: var(--parchment-45);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   VIDEO MODAL (popup overlay embed)
+   ========================================================================== */
+.video-modal{
+  position: fixed; inset: 0;
+  z-index: 900;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8,6,4,.88);
+  backdrop-filter: blur(6px);
+}
+.video-modal.is-open{ display:flex; }
+.video-modal-inner{
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+}
+.video-modal .video-frame{ aspect-ratio: 16/9; }
+.video-modal-close{
+  position: absolute;
+  top: -46px; right: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--parchment);
+  font-family: var(--font-mono);
+  font-size: 16px;
+}
+.video-modal-close:hover{ border-color: var(--brass-light); color: var(--brass-light); }
+.video-modal-label{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--parchment-45);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.popup-trigger{
+  display:inline-flex; align-items:center; gap: 14px;
+  background: transparent; border: 0; color: var(--parchment);
+  font-family: var(--font-mono); font-size: 13px; letter-spacing:.08em; text-transform:uppercase;
+}
+.popup-trigger .play-dot{
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  display:flex; align-items:center; justify-content:center;
+  transition: all .3s var(--ease);
+}
+.popup-trigger .play-dot svg{ width: 12px; height: 12px; fill: var(--parchment); margin-left: 2px; }
+.popup-trigger:hover .play-dot{ background: var(--brass); border-color: var(--brass); }
+.popup-trigger:hover .play-dot svg{ fill: var(--ink); }
+
+/* ==========================================================================
+   CONTACT DRAWER (global slide-in form, mirrors source site's popup contact)
+   ========================================================================== */
+.contact-drawer{
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(440px, 100vw);
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform .45s var(--ease);
+  overflow-y: auto;
+  padding: 100px 40px 40px;
+}
+.contact-drawer.is-open{ transform: translateX(0); }
+.contact-drawer-close{
+  position: absolute; top: 28px; right: 28px;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--line-strong); background: transparent; color: var(--parchment);
+}
+.contact-drawer-close:hover{ border-color: var(--brass-light); color: var(--brass-light); }
+.contact-avatar{
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--panel-2);
+  border: 1px solid var(--line-strong);
+  margin-bottom: 18px;
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-mono); font-size: 11px; color: var(--parchment-45); text-align:center;
+}
+.contact-drawer p.intro{ color: var(--parchment-70); margin-bottom: 30px; }
+.field{ margin-bottom: 18px; }
+.field label{
+  display:block; margin-bottom: 8px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing:.1em; text-transform:uppercase;
+  color: var(--parchment-45);
+}
+.field input, .field textarea{
+  width: 100%;
+  background: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 13px 14px;
+  color: var(--parchment);
+  font-size: 14.5px;
+}
+.field input:focus, .field textarea:focus{
+  outline: none; border-color: var(--brass-light);
+}
+.field textarea{ min-height: 110px; resize: vertical; }
+.form-note{ font-size: 12.5px; color: var(--parchment-45); margin-top: 16px; }
+.contact-backdrop{
+  position: fixed; inset:0; z-index: 999;
+  background: rgba(8,6,4,.6);
+  opacity: 0; pointer-events:none;
+  transition: opacity .4s var(--ease);
+}
+.contact-backdrop.is-open{ opacity: 1; pointer-events:auto; }
+
+.talk-trigger{ cursor: pointer; }
+
+/* focus visibility, kept intentional across all interactive elements */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--brass-light);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   PAGE HEADER (interior pages)
+   ========================================================================== */
+.page-header{
+  padding: calc(var(--nav-h) + 70px) 0 60px;
+  border-bottom: 1px solid var(--line);
+}
+.page-header .eyebrow{ margin-bottom: 20px; }
+.page-header p.lede{ margin-top: 18px; }
+
+/* ==========================================================================
+   SCORES page — reel list
+   ========================================================================== */
+.reel{
+  display:grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 64px;
+  align-items:center;
+  padding: 90px 0;
+  border-bottom: 1px solid var(--line);
+}
+.reel:nth-child(even){ direction: rtl; }
+.reel:nth-child(even) > *{ direction: ltr; }
+.reel-index{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--brass-light);
+  letter-spacing: .1em;
+  margin-bottom: 18px;
+  display:block;
+}
+.reel-meta{
+  margin-top: 22px;
+  display:flex; gap: 22px; flex-wrap:wrap;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--parchment-45);
+}
+.reel-meta span{ padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; }
+
+@media (max-width: 860px){
+  .reel, .reel:nth-child(even){ grid-template-columns: 1fr; direction: ltr; }
+}
+
+.quote-block{
+  padding: 110px 0;
+  text-align: center;
+}
+.quote-block blockquote{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.4vw, 2.5rem);
+  color: var(--parchment);
+  max-width: 20ch;
+  margin: 0 auto 26px;
+  line-height: 1.25;
+}
+.quote-block cite{
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+}
+
+/* ==========================================================================
+   DISCOG page
+   ========================================================================== */
+.gallery-strip{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-top: 50px;
+}
+.gallery-strip .cell{
+  aspect-ratio: 1;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.gallery-strip .cell img{ width:100%; height:100%; object-fit: cover; }
+.gallery-strip .cell .ph{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-mono); font-size: 9.5px; text-align:center;
+  color: var(--parchment-45); padding: 6px;
+}
+@media (max-width: 860px){ .gallery-strip{ grid-template-columns: repeat(3,1fr);} }
+@media (max-width: 480px){ .gallery-strip{ grid-template-columns: repeat(2,1fr);} }
+
+.track-list{ border-top: 1px solid var(--line); margin-top: 20px; }
+.track{
+  display:grid;
+  grid-template-columns: 40px 56px 1fr auto auto;
+  align-items:center;
+  gap: 20px;
+  padding: 16px 14px;
+  border-bottom: 1px solid var(--line);
+  transition: background .25s var(--ease);
+}
+.track:hover{ background: var(--panel); }
+.track-num{ font-family: var(--font-mono); color: var(--parchment-45); font-size: 13px; }
+.track-art{
+  width: 56px; height: 56px; border-radius: 3px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.track-art img{ width:100%; height:100%; object-fit:cover; }
+.track-art span{ font-family: var(--font-mono); font-size: 8px; color: var(--parchment-45); text-align:center; }
+.track-title{ font-family: var(--font-body); font-weight: 500; color: var(--parchment); font-size: 15px; }
+.track-artist{ font-size: 13px; color: var(--parchment-45); margin-top: 2px; }
+.track-play{
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  display:flex; align-items:center; justify-content:center;
+  flex: none;
+}
+.track-play svg{ width: 11px; height: 11px; fill: var(--parchment); margin-left: 1px; }
+.track.is-playing .track-play{ background: var(--brass); border-color: var(--brass); }
+.track.is-playing .track-play svg{ fill: var(--ink); }
+.track.is-playing .track-play .icon-play{ display:none; }
+.track.is-playing .track-play .icon-pause{ display:block; }
+.track-play .icon-pause{ display:none; }
+.track-time{
+  font-family: var(--font-mono); font-size: 12px; color: var(--parchment-45); min-width: 40px; text-align:right;
+}
+
+@media (max-width: 640px){
+  .track{ grid-template-columns: 28px 44px 1fr auto; }
+  .track-time{ display:none; }
+}
+
+/* ==========================================================================
+   ABOUT page
+   ========================================================================== */
+.about-grid{
+  display:grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 70px;
+  align-items: start;
+}
+.about-photo{
+  position: sticky; top: calc(var(--nav-h) + 24px);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  background: var(--panel);
+}
+.about-photo .ph, .media-placeholder{
+  width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; padding: 20px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em;
+  color: var(--parchment-45); line-height:1.6;
+}
+.about-photo img{ width:100%; height:100%; object-fit:cover; }
+
+.pull-testimonial{
+  border-left: 2px solid var(--brass);
+  padding-left: 26px;
+  margin: 6px 0 38px;
+}
+.pull-testimonial p{
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--parchment);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+.pull-testimonial cite{
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--parchment-45);
+}
+
+.tag-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 20px;
+}
+.tag-grid h4{
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  margin-bottom: 16px;
+}
+.tag-grid ul li{
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14.5px;
+  color: var(--parchment-70);
+}
+@media (max-width: 860px){
+  .about-grid{ grid-template-columns: 1fr; }
+  .about-photo{ position: static; aspect-ratio: 16/10; max-width: 420px; }
+  .tag-grid{ grid-template-columns: 1fr; }
+}
+
+.about-video-strip{
+  margin-top: 90px;
+  padding-top: 90px;
+  border-top: 1px solid var(--line);
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items:center;
+}
+@media (max-width: 860px){ .about-video-strip{ grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   CONTACT page
+   ========================================================================== */
+.contact-hero{
+  min-height: 92vh;
+  display:flex; align-items:center;
+  padding-top: var(--nav-h);
+  position: relative;
+  background: var(--ink);
+}
+.contact-hero .media-placeholder{
+  position:absolute; inset:0;
+  opacity: .35;
+}
+.contact-hero .container{ position:relative; z-index:2; }
+.contact-hero h1{ margin-bottom: 30px; }
+.contact-methods{ display:flex; flex-direction:column; gap: 14px; margin: 30px 0 40px; }
+.contact-methods a{
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--parchment);
+  width: fit-content;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 4px;
+}
+.contact-methods a:hover{ color: var(--brass-light); border-color: var(--brass-light); }
+
+.whatsapp-block{
+  display:flex; align-items:center; gap: 18px;
+  margin-top: 34px;
+}
+.qr-box{
+  width: 92px; height: 92px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--panel);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-mono); font-size: 8px; color: var(--parchment-45); text-align:center; padding: 6px;
+}
+.whatsapp-block .label{ font-family: var(--font-mono); font-size: 11.5px; letter-spacing:.08em; text-transform:uppercase; color: var(--parchment-45); }
+
+/* ==========================================================================
+   FORM SUCCESS / STATE MESSAGES
+   ========================================================================== */
+.form-msg{
+  display:none;
+  padding: 16px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 6px;
+}
+.form-msg.is-visible{ display:block; }
+.form-msg.success{ background: rgba(201,160,42,.12); border: 1px solid var(--brass); color: var(--brass-light); }
+.form-msg.error{ background: rgba(182,91,61,.12); border: 1px solid var(--rust); color: var(--rust); }
+
+/* utility */
+.visually-hidden{
+  position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;
+}
+
+/* ==========================================================================
+   ABOUT — tabbed bio + cinematic reel (about.html)
+   A two-column, full-viewport-height composition built for this page only:
+   tab-switched written bio on the left, a large autoplaying local video on
+   the right. Deliberately reuses this site's existing vocabulary rather
+   than inventing a parallel style system —
+     - h2/p/.lede for type,
+     - --brass-light for the "active/selected" state, the same role it
+       already plays on .nav-links a.is-active and .faq-item.is-open,
+     - --parchment-45 for the muted/inactive state (same as footer-bottom,
+       faq nums, etc.),
+     - .grain + --ease for the same cinematic texture/motion feel as the
+       homepage hero and MISSION section.
+   Only the pieces with no existing equivalent are new: the tab switcher
+   itself, the two-column split, and the video panel.
+   NOT wrapped in .container — the video needs to run much wider than the
+   site's usual 1240px reading width (closer to full-bleed), so this
+   section manages its own left/right spacing instead. Nothing here touches
+   .about-grid/.about-photo/.pull-testimonial/.tag-grid/.about-video-strip
+   above (leftover template scaffolding, still unused) or any other
+   existing page. */
+.about-split{
+  min-height: 87.5vh;
+  /* Plain block flow now, not grid — .about-right below is a float, which
+     is what lets the writing wrap alongside the video while there's room
+     for it, then expand back out to the full section width the moment it
+     runs past the video's bottom edge (the standard float-wrap behavior:
+     only content that fits beside the float is narrowed; anything past
+     its bottom returns to the full containing-block width). A grid/subgrid
+     couldn't do that — grid columns stay fixed-width for their entire
+     height, top to bottom. */
+  background: var(--ink);
+  padding: var(--nav-h) clamp(20px, 4.2vw, 32px) 64px;
+}
+/* clearfix: .about-right is floated, so without this the (unfloated)
+   .about-split would collapse to zero height around it. */
+.about-split::after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.about-left{
+  /* No fixed width/column here on purpose — this is normal block flow
+     that wraps around the floated .about-right while beside it (see
+     .about-right below) and reclaims the full section width once it
+     passes the float's bottom edge. */
+  padding-top: 56px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- tabs (About / My Passion / Experience) ---- */
+.about-tabs{
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: clamp(24px, 3vw, 40px);
+  row-gap: 10px;
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+.about-tab{
+  background: none;
+  border: 0;
+  padding: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+  color: var(--parchment-45);
+  transition: color .35s var(--ease);
+}
+.about-tab:hover{ color: var(--parchment-70); }
+.about-tab.is-active{ color: var(--brass-light); }
+.about-tab:focus-visible{ outline: 2px solid var(--brass-light); outline-offset: 4px; }
+
+/* ---- panels ---- */
+.about-panels{ position: relative; }
+.about-panel[hidden]{ display: none; }
+.about-panel p:last-child{ margin-bottom: 0; }
+/* subtle fade/rise on switch — same easing curve as .reveal-on-scroll
+   elsewhere, just triggered by the tab click (js/main.js) rather than by
+   scroll position */
+.about-panel:not([hidden]){
+  animation: about-panel-in .6s var(--ease);
+}
+@keyframes about-panel-in{
+  from{ opacity: 0; transform: translateY(10px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+.about-panel a{
+  color: var(--brass-light);
+  border-bottom: 1px solid var(--line-strong);
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.about-panel a:hover{ color: var(--parchment); border-color: var(--brass-light); }
+@media (prefers-reduced-motion: reduce){
+  .about-panel:not([hidden]){ animation: none; }
+}
+
+/* ---- video panel ---- */
+.about-right{
+  /* Floated right, not gridded into its own column — this is what lets
+     .about-left's text wrap along its left edge for as long as the text
+     is shorter than the video, then flow back out to the section's full
+     width the instant it passes the video's bottom edge. Sits before
+     .about-left in the markup: a float only affects normal-flow content
+     that comes after it in the document, regardless of which side it's
+     floated to, so the ordering here (not the visual side) is what makes
+     the wrap work. */
+  float: right;
+  width: 55%;
+  min-width: 260px;
+  /* Left margin is the gap between the video and the wrapping text;
+     bottom margin is the gap between the video and whatever text
+     continues below it once it goes full-width. Top margin approximates
+     the old alignment with where the panel copy used to start (i.e.
+     roughly level with the tabs above it), without needing the exact
+     per-render tab height a grid/subgrid could read — a float can't
+     synchronize to that dynamically, so this is a close, fixed estimate
+     rather than a pixel-exact match. */
+  margin: 56px 0 24px clamp(24px, 3vw, 40px);
+}
+.about-video-frame{
+  position: relative;
+  width: 100%;
+  /* 608/315 = 0.76 (76% of the video's width left after cropping 12%
+     off each side, left/right unchanged from before) / 0.70 (70% of its
+     height left after the new 15%-off-top-and-bottom crop) * 16/9 (the
+     source video's native aspect ratio). Sizing the frame to this exact
+     ratio is what makes the frame fill edge-to-edge with the cropped
+     picture and no extra letterbox/pillarbox — see the video rule below
+     for how the crop itself is produced, now that two different axes
+     are being cropped by two different amounts at once. */
+  aspect-ratio: 608 / 315;
+  border-radius: 4px;
+  overflow: hidden;
+  /* No border here — and see outline:none on the <video> below — this
+     panel should have no stroke of any color around it, video or
+     container. (No box-shadow either — an edge-feathering treatment
+     was tried here and removed; if one gets added back later, a drop
+     shadow would be worth reconsidering alongside it.) */
+  /* var(--ink), not var(--panel): this is the exact same near-black as
+     the page background (.about-split above), not the lighter warm-brown
+     panel tone. With the frame's aspect-ratio matching the cropped video
+     exactly, the video fills the box completely and this background
+     shouldn't actually show through — it's kept as a safety fallback
+     (e.g. before the video has loaded) so any sliver that does show
+     reads as "no box at all" against the surrounding page rather than a
+     visibly different brown tone. */
+  background: var(--ink);
+}
+.about-video-frame video{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* Sized independently on each axis and re-centered, rather than
+     inset:0/100%/100% + object-fit:cover — cover can only crop ONE axis
+     at a time (it zooms just enough to cover the box, cropping whichever
+     single dimension overflows, leaving the other matched exactly with
+     zero crop); it can't produce two different nonzero crop amounts on
+     both axes at once, which is what's needed now that both left/right
+     (12%) and top/bottom (15%) are being cropped simultaneously. Sizing
+     the video to 100%/0.76 wide and 100%/0.70 tall directly encodes both
+     crops, and because the frame's aspect-ratio above already bakes in
+     that same 0.76:0.70 relationship against the video's native 16:9,
+     the result is a uniform scale with no stretching or distortion. */
+  width: 131.5789%;  /* 100% / 0.76 — recovers the 12%-per-side crop */
+  height: 142.8571%; /* 100% / 0.70 — produces the new 15%-per-side crop */
+  transform: translate(-50%, -50%);
+  /* fill (not cover/contain): the box above is already sized to exactly
+     match the video's native aspect ratio once cropped, so there's no
+     further fitting decision left to make — fill just applies that
+     precomputed uniform scale directly. */
+  object-fit: fill;
+  /* <video> is natively focusable and isn't covered by the site's shared
+     a/button/input/textarea :focus-visible rule (see PAGE HEADER section
+     below), so left alone it can show the browser's own default focus
+     ring. Killed here, and the video is also taken out of the tab order
+     entirely via tabindex="-1" in the markup since it has no controls to
+     focus in the first place. */
+  outline: none;
+}
+.about-video-frame .grain{ z-index: 1; }
+/* About page now shows the set1 behind-the-scenes collage (media/set1_web.jpg)
+   in place of the video. The frame's 608/315 shape is almost exactly the
+   collage's own (1600x822), so object-fit:cover trims only a sliver. */
+.about-video-frame .about-frame-img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 860px){
+  /* The float-wrap above is a desktop-only concern (it's what lets the
+     text wrap alongside the video and then reclaim full width once it
+     passes the video's bottom) — stacked single-column mobile just needs
+     everything in plain top-to-bottom flow, so this switches
+     .about-split to a flex column and cancels .about-right's float.
+     .about-right comes before .about-left in the markup now (needed for
+     the desktop float-wrap), so order is used here to put the text back
+     above the video, matching the original mobile stacking. */
+  .about-split{ display: flex; flex-direction: column; min-height: 0; }
+  .about-left{
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 40px 24px 8px;
+    order: 1;
+  }
+  .about-right{
+    float: none;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0 24px 40px;
+    order: 2;
+  }
+  /* No aspect-ratio override here anymore — the base rule's 608/315
+     (the 12%-per-side / 15%-per-top-bottom crop ratio) applies at every
+     width now, so the crop stays exact on mobile too instead of
+     switching to a different, uncropped 4:3 shape. */
+  .about-tabs{ margin-bottom: 32px; }
+}
+@media (max-width: 640px){
+  .about-left{ padding: 32px 20px 8px; }
+  .about-right{ padding: 0 20px 32px; }
+  .about-tabs{ column-gap: 20px; }
+  .about-tab{ font-size: 1.15rem; }
+}
+
+/* ==========================================================================
+   SCREENPLAYS page (screenplays.html)
+   Built entirely from existing primitives — .page-header (interior-page
+   header, already defined above but unused until now), .section/.section-
+   head/.eyebrow/.container/.grain, and the --rose/--rose-light/--rose-ring
+   pink accent already established by the homepage MISSION section. The
+   ripple itself is NOT a new component: it's the exact .mission-glow /
+   .mission-rings / .ring / @keyframes mission-ripple markup and rules from
+   MISSION, reused verbatim in the page header markup below — only its size
+   and offset are tuned here (scoped to .screenplays-header so the shared
+   .mission-glow/.mission-rings rules elsewhere are untouched) so it fits a
+   much shorter section without bleeding into the list beneath it. */
+.screenplays-header{
+  position: relative;
+  overflow: clip; /* contains the resized ripple — never bleeds into the list below */
+}
+.screenplays-header .mission-glow,
+.screenplays-header .mission-rings{
+  width: 340px; height: 340px;
+  right: -80px;
+}
+.screenplays-header .page-header-inner{
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 860px){
+  .screenplays-header .mission-glow,
+  .screenplays-header .mission-rings{ width: 240px; height: 240px; right: -100px; }
+}
+@media (max-width: 640px){
+  .screenplays-header .mission-glow,
+  .screenplays-header .mission-rings{ display: none; }
+}
+
+/* Entry list — same understated, bordered-row vocabulary as .faq-list/
+   .faq-item and the track list (border-bottom dividers, no boxed "card"
+   panel), so it reads as a natural extension of those existing patterns
+   rather than a new visual language. Each entry with a PDF is a real <a>
+   wrapping the whole row (same "the whole block is the hit target" idea as
+   .track); the one entry without a PDF (Girls) renders as a plain <div>
+   with a "Coming Soon" badge instead of a hover affordance, so it reads as
+   deliberately inert rather than a broken link. */
+.screenplay-list{ border-top: 1px solid var(--line); }
+.screenplay-entry{
+  display: block;
+  padding: 44px 24px;
+  margin: 0 -24px;
+  border-bottom: 1px solid var(--line);
+  border-left: 2px solid transparent;
+  transition: background .3s var(--ease), border-color .3s var(--ease);
+}
+a.screenplay-entry:hover,
+a.screenplay-entry:focus-visible{
+  background: var(--panel);
+  border-left-color: var(--rose);
+}
+.screenplay-entry-head{
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 20px; flex-wrap: wrap;
+}
+.screenplay-title{ margin-bottom: 0; transition: color .3s var(--ease); }
+a.screenplay-entry:hover .screenplay-title,
+a.screenplay-entry:focus-visible .screenplay-title{ color: var(--rose); }
+.screenplay-read{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--parchment-45);
+  white-space: nowrap;
+  flex: none;
+  transition: color .3s var(--ease);
+}
+a.screenplay-entry:hover .screenplay-read,
+a.screenplay-entry:focus-visible .screenplay-read{ color: var(--rose); }
+.screenplay-meta{
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  margin: 12px 0 14px;
+}
+.screenplay-entry p:not(.screenplay-meta){
+  max-width: 68ch;
+  margin-bottom: 0;
+  color: var(--parchment-70);
+}
+.screenplay-badge{
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--rose-light);
+  border: 1px solid var(--rose-ring);
+  border-radius: 999px;
+  padding: 7px 16px;
+  white-space: nowrap;
+  flex: none;
+}
+.screenplay-entry.is-coming-soon{ cursor: default; }
+.screenplay-entry.is-coming-soon .screenplay-title{ color: var(--parchment-70); }
+
+@media (max-width: 640px){
+  .screenplay-entry{ padding: 32px 20px; margin: 0 -20px; }
+  .screenplay-entry-head{ flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+
+/* Page notice (screenplays.html) — a small, standing informational strip,
+   distinct from the JS-toggled .form-msg above (which is ephemeral
+   contact-form feedback, hidden by default). Built from the same
+   border/panel/accent vocabulary as the rest of the site: --line hairline,
+   --panel background, a --brass-light left accent matching the eyebrow/
+   meta-line color already used throughout this page. */
+.page-notice{
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--brass-light);
+  background: var(--panel);
+  border-radius: 4px;
+  padding: 20px 26px;
+  margin-bottom: 48px;
+}
+.page-notice p{
+  margin: 0;
+  font-size: 14px;
+  color: var(--parchment-70);
+  max-width: 74ch;
+}
+.page-notice a{
+  color: var(--brass-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.page-notice a:hover{ color: var(--parchment); }
+
+@media (max-width: 640px){
+  .page-notice{ padding: 16px 18px; margin-bottom: 32px; }
+}
+
+/* ==========================================================================
+   LIVE ACTION page (live-action.html)
+   Both the slideshow and the two video clips reuse the existing .video-frame
+   component as-is (see "the hero cinematic reel" above: aspect-ratio 16/9,
+   hairline border, rounded corners, drop shadow, and the inset vignette
+   ::before) — the same framing already used for the homepage's overlay
+   video and the About page's video, so all three media blocks on this page
+   read as one consistent, cinematic system rather than three different
+   treatments. Only the slideshow's own controls (arrows/counter) and the
+   spacing between the two stacked clips are new. */
+.slideshow-frame{ background: var(--ink); }
+.slideshow-img{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain; /* guarantees no cropping even if a slide's exact ratio ever differs */
+  background: var(--ink);
+}
+/* Circular controls over media — same treatment as .overlay-mute-toggle on
+   the homepage hero (semi-transparent dark glass, hairline border, brass
+   hover), just mirrored left/right instead of bottom-right. */
+.slideshow-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(16,13,10,.68);
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--parchment);
+  backdrop-filter: blur(6px);
+  font-size: 22px;
+  line-height: 1;
+  transition: all .3s var(--ease);
+}
+.slideshow-arrow:hover{ border-color: var(--brass-light); color: var(--brass-light); }
+.slideshow-prev{ left: 16px; }
+.slideshow-next{ right: 16px; }
+.slideshow-meta{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.slideshow-counter{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .12em;
+  color: var(--parchment-45);
+}
+
+/* The clips share one section, stacked with the same rhythm as the
+   section-head's own bottom margin (56px) so they read as one paired
+   presentation rather than unrelated embeds. */
+.clip-frame + .clip-frame{ margin-top: 56px; }
+
+/* Small italic credit line above a clip that needs its own context (e.g.
+   a clip that isn't a Ripple House production) — same muted --parchment-45
+   tone already used for footer/FAQ/track-list secondary text. Carries the
+   same 56px top rhythm as ".clip-frame + .clip-frame" above (it always
+   follows a clip-frame), with a tighter bottom margin so it reads as a
+   caption belonging to the frame directly beneath it. */
+.clip-note{
+  margin-top: 56px;
+  margin-bottom: 14px;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--parchment-45);
+  max-width: 60ch;
+}
+.clip-note + .clip-frame{ margin-top: 0; }
+
+@media (max-width: 640px){
+  .slideshow-arrow{ width: 40px; height: 40px; font-size: 18px; }
+  .slideshow-prev{ left: 10px; }
+  .slideshow-next{ right: 10px; }
+  .clip-frame + .clip-frame{ margin-top: 40px; }
+  .clip-note{ margin-top: 40px; margin-bottom: 12px; }
+}
+
+/* ==========================================================================
+   CLASSES page (classes.html)
+   A single full-height "moment" rather than a header-plus-sections page,
+   since there's currently only one line of copy to show. Reuses the exact
+   .mission-glow / .mission-rings / .ring / @keyframes mission-ripple pink
+   ripple from the homepage MISSION section (same as screenplays-header
+   above) verbatim — only recentered (instead of bled off the right edge)
+   and sized up, since here it's the whole page's focal point rather than a
+   corner accent. --rose on the heading ties the typography to the same
+   pink accent already carrying the ripple everywhere else on the site.
+   ========================================================================== */
+.classes-hero{
+  position: relative;
+  overflow: clip;
+  /* 60% of the window's height (was a full screen), so the course list
+     below starts in view. Top padding clears the fixed nav bar. */
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: calc(var(--nav-h) + 40px) 0 56px;
+}
+.classes-hero .mission-glow,
+.classes-hero .mission-rings{
+  top: 50%; right: auto; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.classes-hero .mission-rings{ width: min(680px, 54vh); height: min(680px, 54vh); } /* fits the 60vh-tall section */
+.classes-hero .mission-glow{ width: min(760px, 60vh); height: min(760px, 60vh); }
+.classes-hero-inner{ position: relative; z-index: 1; }
+.classes-message{
+  color: var(--rose);
+  font-size: clamp(2.75rem, 6.5vw, 5.5rem);
+  line-height: 1.1;
+  margin: 0;
+}
+/* Two lines: "Out of Session until 2027", then "Stay Tuned!" indented
+   beneath it. The heading is an inline-block with left-aligned text, so
+   the pair stays centered on the page as a unit while the second line
+   keeps its indent relative to the first. */
+.classes-message{ display: inline-block; text-align: left; }
+.classes-message-line{ display: block; }
+.classes-message-indent{ text-align: center; } /* "Stay Tuned!" centered under the first line (was indented 1.5em) */
+
+@media (max-width: 860px){
+  .classes-hero .mission-rings{ width: min(480px, 54vh); height: min(480px, 54vh); }
+  .classes-hero .mission-glow{ width: min(560px, 60vh); height: min(560px, 60vh); }
+}
+@media (max-width: 640px){
+  .classes-hero{ padding: calc(var(--nav-h) + 24px) 0 40px; }
+  /* Overrides the sitewide ".mission-glow, .mission-rings{ display:none }"
+     mobile rule (MISSION hides its ripple below 640px since it's a corner
+     accent there) — here the ripple IS the page, so it stays visible,
+     just smaller. */
+  .classes-hero .mission-rings{ display: block; width: 320px; height: 320px; }
+  .classes-hero .mission-glow{ display: block; width: 380px; height: 380px; }
+  .classes-message{ font-size: clamp(2.1rem, 9vw, 3rem); }
+}
+
+/* ---- Mission / pay-what-you-can section, below the hero above ----
+   Built entirely from the same generic .section/.section-head/.eyebrow
+   pattern used on every other page (see e.g. news.html's "More Coverage"
+   section) — nothing new there. Body copy is plain <p>, capped at the
+   same ~68ch reading width already used for long-form prose elsewhere
+   (.screenplay-entry p, .page-notice p). The two subheadings use --rose,
+   the color already established as this page's own accent via
+   .classes-message above, so they read as part of the same page rather
+   than a generic gray heading. .section already has its own 640px
+   padding override (see the base NAV/utility rules above), so no
+   mobile-specific override is needed here. */
+.classes-mission-copy{ max-width: 720px; }
+.classes-mission-copy p{ max-width: 68ch; }
+.classes-mission-copy h3{
+  color: var(--rose);
+  margin-top: 2em;
+}
+
+/* ==========================================================================
+   MUSIC page (music.html)
+   The required line is presented via the existing .quote-block component
+   (defined above, previously unused anywhere on the site) exactly as
+   already styled — large centered italic display type — with only its
+   max-width widened here for this longer sentence (the base 20ch cap was
+   sized for short quotes) rather than any new typographic treatment.
+   ========================================================================== */
+.music-message{ max-width: 34ch; }
+
+@media (max-width: 640px){
+  .quote-block{ padding: 70px 0; }
+}
+
+/* ==========================================================================
+   CLAYMATION page (claymation.html)
+   Two sections — Claymation and Storyboard — sharing one .clip-grid/
+   .clip-card component built from existing primitives: .press-frame (the
+   same bordered/shadowed image framing used by NEWS/REVIEWS/LIVE ACTION,
+   unchanged) for each thumbnail, a mono index number in the .reel-index/
+   .review-index vocabulary, and a centered .clip-play button reusing the
+   .popup-trigger .play-dot circle's exact visual treatment (border/hover/
+   brass-fill-on-hover) without editing that shared rule. Clicking a card
+   opens #clay-video-modal (below), a second instance of the .video-modal
+   component already defined above for an (unused) iframe embed — same
+   classes, just holding a <video> — wired independently in main.js via
+   [data-clay-video] so the original #video-modal/[data-video-popup]
+   pairing is untouched. */
+.clay-section{ padding-bottom: 60px; }
+.storyboard-section{ padding-top: 60px; }
+@media (max-width: 640px){
+  .clay-section{ padding-bottom: 38px; }
+  .storyboard-section{ padding-top: 38px; }
+}
+
+.clip-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px 32px;
+}
+.clip-item{ list-style: none; }
+.clip-card{
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  color: inherit;
+}
+.clip-index{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: .1em;
+  color: var(--brass-light);
+  display: block;
+  margin-bottom: 14px;
+}
+/* .press-frame reused exactly as-is (border/radius/shadow/overflow-hidden);
+   only the hover zoom on its image and the play-button overlay are new,
+   both scoped to .clip-thumb so .press-frame's own rule stays untouched.
+   display:block is required here because .clip-thumb's element is a
+   <span> (not .press-frame's usual <div>) — <button> content must be
+   phrasing content per HTML5, so a <div> can't legally sit inside it.
+   Without this, the inline <span> makes .clip-play's percentage-based
+   centering below compute against the wrong containing block. */
+.clip-thumb{ display: block; margin: 0; }
+.clip-thumb img{ transition: transform .6s var(--ease); }
+.clip-card:hover .clip-thumb img,
+.clip-card:focus-visible .clip-thumb img{ transform: scale(1.045); }
+.clip-play{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: rgba(16,13,10,.55);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 5;
+  transition: all .3s var(--ease);
+}
+.clip-play svg{ width: 15px; height: 15px; fill: var(--parchment); margin-left: 2px; transition: fill .3s var(--ease); }
+.clip-card:hover .clip-play,
+.clip-card:focus-visible .clip-play{ background: var(--brass); border-color: var(--brass); }
+.clip-card:hover .clip-play svg,
+.clip-card:focus-visible .clip-play svg{ fill: var(--ink); }
+
+/* local <video> player inside the reused .video-modal/.video-frame shell —
+   .video-modal .video-frame{aspect-ratio:16/9} and .video-frame video
+   (object-fit:cover, absolute-fill) are both already defined above and
+   apply here without change. */
+.clay-video-modal-player{ background: var(--ink); }
+
+@media (max-width: 860px){
+  .clip-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px){
+  .clip-grid{ grid-template-columns: 1fr; gap: 36px; }
+}
+
+/* Live Action page: the gap between the slideshow and "Clips from All the
+   Beautiful Things" is the sum of .slideshow-section's bottom padding and
+   .clips-section's top padding (120px + 120px, from the shared .section
+   rule) — halved here on just these two edges so the two sections sit
+   closer together, without touching .section itself (which every other
+   section on the site still uses at its normal spacing) or either
+   section's other edge. */
+.slideshow-section{ padding-bottom: 60px; }
+.clips-section{ padding-top: 60px; }
+
+@media (max-width: 640px){
+  .slideshow-section{ padding-bottom: 38px; }
+  .clips-section{ padding-top: 38px; }
+}
+
+/* Live Action page: set1/set2 photo additions. The existing header text
+   block (.page-header-inner: eyebrow/h1/lede) keeps 100% of its own CSS —
+   .page-header, .page-header .eyebrow, .page-header p.lede are untouched
+   above. The only change is that it now shares its row with the set1
+   image, via this new .live-action-header-inner grid scoped to
+   .live-action-header so no other page's .page-header/.container layout is
+   affected. .press-frame (from NEWS/REVIEWS) reused as-is for both images
+   so they match the site's existing photo-framing language. */
+.live-action-header{
+  position: relative; /* positioning context for the ripple below */
+  /* Split per axis (same technique as .mission above) rather than a flat
+     "overflow:clip": overflow-x stays clipped so the ripple's right:-80px
+     bleed and set1's enlarged edge can't add horizontal scroll, while
+     overflow-y is visible so both are free to extend below this header's
+     own box — into the existing gap before the slideshow — without that
+     gap, the slideshow, or this header's own layout height changing at
+     all (nothing here participates in layout; both are paint-only). */
+  overflow-x: clip;
+  overflow-y: visible;
+}
+.live-action-header-inner{
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 56px;
+  align-items: center;
+}
+/* set1, enlarged 15% via transform (scale only affects painting, never
+   layout/reflow) — transform-origin pinned to the frame's own top-right
+   corner so the added size extends down and left from a fixed point,
+   leaving the grid's row height/column widths and every other element on
+   the page completely unaffected. */
+.live-action-header-media .press-frame{
+  margin: 0;
+  transform: scale(1.15);
+  transform-origin: top right;
+}
+
+@media (max-width: 860px){
+  .live-action-header-inner{ grid-template-columns: 1fr; gap: 32px; }
+  /* On the stacked single-column layout set1 no longer shares a row with
+     the text, so the "closer on its left / extends past the text block's
+     bottom" framing no longer applies — scale it back down to its normal
+     100% here rather than have it bleed oddly into its own centered
+     column. */
+  .live-action-header-media .press-frame{ transform: none; }
+}
+
+/* Ripple — the exact .mission-glow/.mission-rings/.ring/@keyframes
+   mission-ripple markup already used on screenplays.html (see
+   .screenplays-header above for the same 340px/right:-80px scale this
+   reuses verbatim). The only difference is vertical placement: instead of
+   the base rule's top:50% (vertically centered in the header), this is
+   anchored from the bottom and pushed down past this header's own box —
+   landing in the existing gap between set1 above and the slideshow below
+   (enabled by overflow-y:visible above) instead of centered in the header
+   like on Screenplays. Nothing about set1, the text block, or the
+   slideshow moves to make room for it — it only occupies already-empty
+   space, and is allowed to lightly overlap set1's bottom edge per the
+   brief (unlike NEWS/REVIEWS, .page-header-inner here is never promoted to
+   z-index:1, so the ripple sits above the non-positioned image/text
+   underneath it wherever they meet — the "layered" look asked for). */
+.live-action-header .mission-glow,
+.live-action-header .mission-rings{
+  top: auto;
+  bottom: -100px;
+  transform: none;
+  width: 340px; height: 340px;
+  right: -80px;
+}
+@media (max-width: 860px){
+  .live-action-header .mission-glow,
+  .live-action-header .mission-rings{ width: 240px; height: 240px; right: -100px; bottom: -70px; }
+}
+@media (max-width: 640px){
+  .live-action-header .mission-glow,
+  .live-action-header .mission-rings{ display: none; }
+}
+
+/* set2, added at the bottom of the page below the clips section — plain
+   .section-tight (same 80px rhythm used elsewhere after a .section), and
+   the same .press-frame treatment as set1 above, no forced 16:9 crop since
+   it's a photo collage rather than a video. */
+
+/* ==========================================================================
+   NEWS page (news.html)
+   Built from existing primitives wherever possible: .page-header (interior-
+   page header) plus the homepage MISSION section's ripple — the exact
+   .mission-glow/.mission-rings/.ring/@keyframes mission-ripple markup,
+   reused verbatim and only resized here via .news-header, same technique as
+   .screenplays-header above — and .section/.section-tight/.section-head/
+   .eyebrow/.container. The "More Coverage" entries reuse .reel/.reel-index/
+   .reel-meta wholesale (built for the never-produced SCORES page, unused
+   until now): its alternating-side grid and nth-child(even) rule flip the
+   second entry's orientation automatically, no new layout code required.
+   The one genuinely new piece is .press-frame — the same bordered/shadowed
+   framing language as .video-frame, but auto-height instead of a fixed
+   16:9 crop, since these are press screenshots at varied aspect ratios
+   rather than video. Its .frame-tag/.dot outlet label re-scopes
+   .video-frame's own (also previously unused) tag styling to .press-frame
+   rather than editing the shared .video-frame rule.
+   ========================================================================== */
+.news-header{
+  position: relative;
+  overflow: clip; /* contains the resized ripple — never bleeds into the story below */
+}
+.news-header .mission-glow,
+.news-header .mission-rings{
+  width: 340px; height: 340px;
+  right: -80px;
+}
+.news-header .page-header-inner{
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 860px){
+  .news-header .mission-glow,
+  .news-header .mission-rings{ width: 240px; height: 240px; right: -100px; }
+}
+@media (max-width: 640px){
+  .news-header .mission-glow,
+  .news-header .mission-rings{ display: none; }
+}
+
+/* ---- press-frame: shared image framing for both the featured story and
+   the "More Coverage" entries below — border/radius/shadow match
+   .video-frame's own bordered-panel language, just without a forced
+   aspect-ratio crop (auto height) since these are text-heavy screenshots
+   at varied proportions rather than 16:9 video. ---- */
+.press-frame{
+  position: relative;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--panel);
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.7);
+}
+.press-frame img{ display: block; width: 100%; height: auto; }
+/* stacked variant — the three sequential Deadline captures, divided by a
+   hairline instead of gapped as separate cards, so they read as one
+   continuous clipping rather than three unrelated images. */
+.press-frame-stack img + img{ border-top: 1px solid var(--line); }
+.press-frame .frame-tag{
+  position: absolute; top: 14px; left: 14px; z-index: 4;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--parchment);
+  background: rgba(16,13,10,.6);
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.press-frame .frame-tag .dot{
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--rust); display: inline-block; margin-right: 6px;
+  box-shadow: 0 0 6px var(--rust);
+}
+
+/* mono/uppercase outlet + date line — same vocabulary as .screenplay-meta */
+.press-kicker{
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  margin: 0 0 14px;
+}
+
+/* ---- featured story (deadline1/deadline2/deadline3 as one unit) ---- */
+.press-feature{
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: 56px;
+  align-items: start;
+}
+.press-feature-copy{ padding-top: 4px; }
+.press-feature-copy p:not(.press-kicker){ max-width: 52ch; }
+
+/* ---- "More Coverage" list — .reel as-is, wrapped in .reel-list for the
+   same border-top rhythm as .screenplay-list/.faq-list elsewhere. ---- */
+.reel-list{ border-top: 1px solid var(--line); }
+.reel-list .reel-index{ margin-bottom: 10px; }
+.reel-list .reel-meta{ margin-bottom: 26px; }
+.news-read{ margin-top: 4px; }
+
+@media (max-width: 860px){
+  .press-feature{ grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 640px){
+  .press-frame .frame-tag{ font-size: 9.5px; padding: 4px 8px; top: 10px; left: 10px; }
+}
+
+/* ==========================================================================
+   PODCASTS page (podcasts.html)
+   Rebuilt from scratch (previous episode-accordion version scrapped) as a
+   much simpler page: the shared .page-header + homepage MISSION ripple
+   (same technique as .screenplays-header/.news-header/.reviews-header
+   above, scoped here as .podcasts-header) carries the page's mission
+   statement as its .lede; below that, one section holding the We Are
+   Rivers series story.
+   Story: a single comfortable reading column (.podcast-story), plain
+   site <p> body copy throughout — same vocabulary as .about-panel/
+   .press-feature-copy elsewhere — with only the opening line promoted to
+   .lede, the same "lede opens, then plain paragraphs carry the rest"
+   pattern already used on About. */
+.podcasts-header{
+  position: relative;
+  overflow: clip; /* contains the resized ripple — never bleeds into the content below */
+}
+.podcasts-header .mission-glow,
+.podcasts-header .mission-rings{
+  width: 340px; height: 340px;
+  right: -80px;
+}
+.podcasts-header .page-header-inner{
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 860px){
+  .podcasts-header .mission-glow,
+  .podcasts-header .mission-rings{ width: 240px; height: 240px; right: -100px; }
+}
+@media (max-width: 640px){
+  .podcasts-header .mission-glow,
+  .podcasts-header .mission-rings{ display: none; }
+}
+
+/* ---- Apple Reviews banner + lightbox ----
+   Banner: manually scrolled, not automatic. .review-viewport is a native
+   horizontally-scrolling box (overflow-x:auto, its own scrollbar hidden
+   since the two arrow buttons are the intended control) with scroll-snap
+   so each card comes to rest fully in view rather than stopping mid-card;
+   .review-banner is just the positioning context for the two arrows
+   (.review-arrow, built on the existing .slideshow-arrow circular-glass-
+   button treatment from the Live Action slideshow — same component, not a
+   new one). js/main.js drives the arrows via reviewViewport.scrollBy(),
+   moving exactly one card-width at a time, and toggles .is-disabled on
+   whichever arrow has nothing left to scroll to. Each card is a fixed
+   width (450px — 1.25x the original 360px — stepped down per breakpoint
+   below) rather than a grid fraction, so it stays a consistent size
+   regardless of how many happen to fit in the viewport at once.
+   Lightbox: a second .video-modal instance (the shared fixed-overlay shell
+   already used by #video-modal/#clay-video-modal) — .review-image-modal-
+   inner narrows the shell's max-width for these portrait phone-screenshot
+   captures instead of the wide 640px video default, and
+   .review-image-frame swaps in the site's standard bordered-panel image
+   framing (.press-frame's own border/radius/shadow language, just not
+   reusing that class itself since this box has no fixed aspect-ratio to
+   crop to — the screenshot's own proportions decide its size, up to a
+   viewport-relative cap). */
+.podcast-reviews{ margin-bottom: 64px; }
+.podcast-links{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0 0 64px;
+}
+.review-banner{
+  position: relative;
+}
+.review-viewport{
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox — arrows are the intended control */
+}
+.review-viewport::-webkit-scrollbar{ display: none; } /* Chrome/Safari */
+.review-track{
+  display: flex;
+  gap: 50px;
+  width: max-content;
+}
+.review-shot-card{
+  display: block;
+  flex: 0 0 450px; /* 1.25 x the original 360px */
+  width: 450px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+.review-shot-thumb{ display: block; margin: 0; }
+.review-shot-thumb img{ display: block; width: 100%; height: auto; transition: transform .6s var(--ease); }
+.review-shot-card:hover .review-shot-thumb img,
+.review-shot-card:focus-visible .review-shot-thumb img{ transform: scale(1.03); }
+/* Arrows: .slideshow-arrow (css above) already supplies the circular
+   glass button/hover styling and position:absolute; only the left/right
+   offsets and the disabled state are new here. */
+.review-arrow-prev{ left: -22px; }
+.review-arrow-next{ right: -22px; }
+.review-arrow.is-disabled{
+  opacity: .35;
+  pointer-events: none;
+}
+@media (max-width: 860px){
+  .review-shot-card{ flex-basis: 350px; width: 350px; }
+  .review-track{ gap: 35px; }
+  .review-arrow-prev{ left: -14px; }
+  .review-arrow-next{ right: -14px; }
+}
+@media (max-width: 640px){
+  .review-shot-card{ flex-basis: 275px; width: 275px; }
+  .review-track{ gap: 23px; }
+  .podcast-reviews{ margin-bottom: 48px; }
+  .podcast-links{ margin-bottom: 48px; }
+  .review-arrow{ width: 40px; height: 40px; font-size: 18px; }
+  .review-arrow-prev{ left: -4px; }
+  .review-arrow-next{ right: -4px; }
+}
+
+.review-image-modal-inner{ max-width: 1050px; } /* 2.5 x the previous 420px */
+.review-image-frame{
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--panel);
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.7);
+}
+.review-image-modal-img{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+}
+
+/* ---- We Are Rivers story + embed ---- */
+.podcast-story{ max-width: 66ch; }
+.podcast-story p{ margin: 0 0 1.4em; }
+.podcast-story p:last-child{ margin-bottom: 0; }
+.podcast-story p.lede{ margin-bottom: 1.6em; }
+
+/* Two-column row holding the story text (flexible width, capped at 66ch by
+   .podcast-story itself) and a narrower fixed-width sidebar of supporting
+   photos. Grid rather than float so the figures column can be given a
+   sticky position without the float-clearing complexity used on the About
+   page's video/text layout. */
+.podcast-story-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 56px;
+  align-items: start;
+}
+.podcast-figures{
+  position: sticky;
+  top: calc(var(--nav-h) + 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.podcast-figure{ margin: 0; }
+.podcast-figure figcaption{
+  margin-top: 14px;
+  font-style: italic;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--parchment-45);
+}
+
+@media (max-width: 860px){
+  .podcast-story-layout{ grid-template-columns: 1fr; gap: 40px; }
+  .podcast-figures{ position: static; flex-direction: row; flex-wrap: wrap; gap: 24px; }
+  .podcast-figure{ flex: 1 1 200px; max-width: 260px; }
+}
+@media (max-width: 640px){
+  .podcast-figures{ flex-direction: column; flex-wrap: nowrap; }
+  .podcast-figure{ max-width: none; }
+}
+
+/* ==========================================================================
+   REVIEWS page (reviews.html)
+   Header built the same way as NEWS above: .page-header + the homepage
+   MISSION ripple, scoped here as .reviews-header (same technique as
+   .screenplays-header/.news-header). Rather than repeating NEWS's
+   screenshot-forward .press-feature/.reel treatment, these six testimonial
+   captures are transcribed into real site typography — .review-quote uses
+   the same italic Fraunces voice as .quote-block's blockquote — as the
+   primary reading surface, with each source screenshot kept alongside at a
+   smaller scale (.press-frame, reused as-is from NEWS) as a "here's the
+   original" provenance thumbnail rather than the headline element. That
+   split is what keeps six screenshots from reading as a plain image
+   gallery, per the brief. review1 (a title page, not a testimonial) gets
+   its own opening moment above the list instead of being forced into the
+   quote format.
+   ========================================================================== */
+.reviews-header{
+  position: relative;
+  overflow: clip; /* contains the resized ripple — never bleeds into the content below */
+}
+.reviews-header .mission-glow,
+.reviews-header .mission-rings{
+  width: 340px; height: 340px;
+  right: -80px;
+}
+.reviews-header .page-header-inner{
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 860px){
+  .reviews-header .mission-glow,
+  .reviews-header .mission-rings{ width: 240px; height: 240px; right: -100px; }
+}
+@media (max-width: 640px){
+  .reviews-header .mission-glow,
+  .reviews-header .mission-rings{ display: none; }
+}
+
+/* ---- rating mark opener (5stars.png) — its own centered moment, set
+   apart from the quote list below. Shown plainly (no .press-frame) at a
+   modest width since it's a graphic rating mark, not a screenshot.
+   max-width doubled (260px -> 520px) from its original size per request;
+   it still shrinks to fit the container on narrow viewports since the img
+   is width:100% of this wrapper, not a fixed size. ---- */
+.review-stars{
+  max-width: 520px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+.review-stars img{ width: 100%; height: auto; display: block; }
+/* Halves the gap to the "From the Set" section below: the .review-stars
+   margin-bottom above (96px -> 48px) plus this section's own bottom
+   padding and .reviews-list-section's top padding (each 80px -> 40px,
+   from the shared .section-tight rule) — scoped to these two sections
+   only, so .section-tight's normal 80px padding is untouched everywhere
+   else it's used. */
+.reviews-stars-section{ padding-bottom: 40px; }
+.reviews-list-section{ padding-top: 40px; }
+
+/* ---- testimonial list ---- */
+.review-list{ border-top: 1px solid var(--line); }
+.review-entry{
+  display: grid;
+  grid-template-columns: 1fr 210px;
+  gap: 48px;
+  align-items: start;
+  padding: 64px 24px;
+  margin: 0 -24px;
+  border-bottom: 1px solid var(--line);
+}
+.review-index{
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: .1em;
+  color: var(--brass-light);
+  display: block;
+  margin-bottom: 18px;
+}
+.review-quote{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.5;
+  color: var(--parchment);
+  margin: 0 0 20px;
+  max-width: 64ch;
+}
+.review-quote p{ color: inherit; margin: 0 0 .9em; }
+.review-quote p:last-child{ margin-bottom: 0; }
+.review-source{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--parchment-45);
+}
+.review-source em{ font-style: italic; color: var(--parchment-70); }
+.review-thumb-caption{
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--parchment-45);
+}
+
+@media (max-width: 860px){
+  .review-entry{ grid-template-columns: 1fr; gap: 24px; }
+  .review-entry .review-thumb-wrap{ order: -1; max-width: 260px; }
+}
+@media (max-width: 640px){
+  .review-entry{ padding: 44px 20px; margin: 0 -20px; }
+  .review-stars{ margin-bottom: 32px; }
+}
+
+/* ==========================================================================
+   CLASSES page — course list
+   Four courses in a two-column grid (one column on narrow screens). Each
+   course sits under a hairline rule, like entries in a catalog; titles in
+   the display serif, an optional subtitle in the site's yellow italic
+   (same treatment as "finding the story" / "human story" on Home), and
+   descriptions in the standard body tone at a comfortable reading width.
+   ========================================================================== */
+.classes-list-section{ padding-top: 96px; }
+.course-list{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 72px;
+}
+.course{
+  border-top: 1px solid var(--line-strong);
+  padding: 34px 0 44px;
+}
+.course-title{
+  font-size: clamp(1.6rem, 2.4vw, 2.15rem);
+  line-height: 1.15;
+  margin: 0 0 14px;
+  text-wrap: balance;
+}
+.course-subtitle{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.3;
+  color: var(--brass-light);
+  margin: -4px 0 14px;
+}
+.course p:not(.course-subtitle){
+  font-size: 1.15rem;
+  line-height: 1.65;
+  max-width: 58ch;
+  margin: 0;
+}
+@media (max-width: 860px){
+  .course-list{ grid-template-columns: 1fr; }
+  .classes-list-section{ padding-top: 64px; }
+  .course{ padding: 28px 0 36px; }
+}
+
+/* ==========================================================================
+   HOME PHOTO BACKGROUND
+   Home page only (body.has-photo-bg, set in index.html). A still of the
+   color-suite "wall of frames" sits fixed behind the whole page, blurred
+   slightly (it reads as atmosphere, and hides the photo's modest
+   resolution) and darkened to ~70% with the site's ink tone so all text
+   keeps its contrast. position:fixed on its own element (not
+   background-attachment:fixed) so it also stays put on iOS.
+   Timing: invisible during the quote intro (the hero stays black, exactly
+   as before); at t=1.000s of the entrance — the same instant the quote
+   fades out and the reel fades in — body gets .is-bg-revealed and the
+   photo fades in over the identical 1s ease, while the quote's dark
+   backdrop (.hero-bg-video.is-fading-out) fades away over it. Repeat
+   visits (body.intro-skip) show it immediately.
+   Sections that used to paint solid ink/panel are made translucent here
+   so the photo shows through the whole page, not just the hero.
+   ========================================================================== */
+.page-photo-bg{ display: none; }
+body.has-photo-bg .page-photo-bg{
+  display: block;
+  position: fixed;
+  inset: -24px; /* bleed past the edges so the blur never shows a soft border */
+  bottom: calc(-24px - 36vh); /* extra height below, so shifting the photo up (see transform) never leaves a gap at the bottom */
+  z-index: -1;
+  background: var(--ink) url("../media/bg_color_suite.jpg") center top / cover no-repeat;
+  filter: blur(3px);
+  /* Zoomed in 1.25x from the top edge: the top of the photo stays exactly
+     where it was and the view is cropped in by 20% from the bottom (the
+     sides trim evenly as it enlarges). */
+  /* ...then shifted up by 36% of the screen height. */
+  transform: translateY(-36vh) scale(1.25);
+  transform-origin: center top;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+body.has-photo-bg .page-photo-bg::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--ink);
+  opacity: .7;
+}
+body.has-photo-bg.is-bg-revealed .page-photo-bg{ opacity: 1; }
+body.has-photo-bg.intro-skip .page-photo-bg{ transition-duration: 0s; }
+
+body.has-photo-bg .hero{ background: transparent; }
+.hero-bg-video.is-fading-out{ opacity: 0; transition: opacity 1s ease, filter 2.5s ease; }
+body.intro-skip .hero-bg-video.is-fading-out{ transition-duration: 0s; }
+/* "Dedicated to..." section: a heavier frosted haze over the photo so the
+   section reads as its own panel and the text pops — the photo is blurred
+   further and mostly veiled here, while still faintly visible. */
+body.has-photo-bg .mission{
+  background: rgba(26,21,16,.84);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+body.has-photo-bg .site-footer{ background: rgba(16,13,10,.6); } /* --ink, translucent */
+
+/* ==========================================================================
+   LIVE ACTION — cinematography reel (top of live-action.html)
+   Sits above the page header, so it takes over the header's job of
+   clearing the fixed nav bar; the header right below it gets a normal
+   top padding instead. The frame matches the reel's native 1920x804 shape
+   (object-fit: contain as a safeguard), so the full picture always shows.
+   ========================================================================== */
+.la-reel{
+  padding: calc(var(--nav-h) + 44px) 0 8px;
+}
+.la-reel .eyebrow{ margin-bottom: 18px; }
+.la-reel-frame{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1920 / 804;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.7);
+}
+.la-reel-frame video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  outline: none;
+}
+.la-reel + .page-header{ padding-top: 56px; }
+@media (max-width: 640px){
+  .la-reel{ padding-top: calc(var(--nav-h) + 20px); }
+  .la-reel + .page-header{ padding-top: 40px; }
+}
+
+/* ==========================================================================
+   ARTICLES page (articles.html)
+   Reuses the SCREENPLAYS list (.screenplay-list/.screenplay-entry/
+   .screenplay-meta) and header. Additions below cover only the in-page
+   Salazar profile: its body copy and the "Read more" expand toggle, styled
+   in the same mono/uppercase vocabulary as .screenplay-read.
+   ========================================================================== */
+.article-entry{ scroll-margin-top: 110px; }
+.article-entry .article-summary{ margin-bottom: 26px !important; }
+.article-body{
+  border-left: 1px solid var(--line);
+  padding-left: 24px;
+}
+.article-entry .article-body p{
+  max-width: 68ch;
+  margin: 0 0 1em;
+  color: var(--parchment-70);
+  line-height: 1.7;
+}
+.article-entry .article-body p.article-dek{ color: var(--rose-light); }
+.article-more[hidden]{ display: none; }
+.article-more{ animation: article-fade .5s var(--ease); }
+@keyframes article-fade{ from{ opacity: 0; transform: translateY(6px); } to{ opacity: 1; transform: none; } }
+.article-toggle{
+  margin-top: 10px;
+  background: none;
+  border: 1px solid var(--rose-ring);
+  border-radius: 999px;
+  padding: 9px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--rose-light);
+  cursor: pointer;
+  transition: color .3s var(--ease), border-color .3s var(--ease), background .3s var(--ease);
+}
+.article-toggle:hover,
+.article-toggle:focus-visible{ color: var(--rose); border-color: var(--rose); background: var(--panel); }
+@media (max-width: 640px){
+  .article-body{ padding-left: 16px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .article-more{ animation: none; }
+}
+
+/* Articles — NPR audio embed at the end of the Salazar profile, framed with
+   the same hairline/panel vocabulary as .page-notice. */
+.article-audio{
+  margin: 36px 0 8px;
+  max-width: 68ch;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--rose);
+  background: var(--panel);
+  border-radius: 4px;
+  padding: 18px;
+}
+.article-audio iframe{ display: block; width: 100%; border: 0; border-radius: 2px; }
+.article-audio-note{
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--parchment-70);
+}
+.article-audio-note em{ color: var(--rose-light); }
+@media (max-width: 640px){ .article-audio{ padding: 12px; } }
+.article-audio-note a{ color: var(--rose-light); text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; }
+.article-audio-note a:hover{ color: var(--rose); }
+/* NPR logo above the audio box — clear space between the "Read more" button,
+   the logo, and the player. */
+.article-audio-logo{
+  margin: 48px 0 0;
+  padding: 0 0 28px;
+}
+.article-audio-logo img{ display: block; width: 132px; height: auto; border-radius: 2px; }
+.article-entry .article-audio{ margin-top: 0; }
+@media (max-width: 640px){
+  .article-audio-logo{ margin-top: 36px; padding-bottom: 20px; }
+  .article-audio-logo img{ width: 110px; }
+}
+.page-header .lede strong{ color: var(--parchment); font-weight: 600; }
+
+/* Articles banner (articles.html) — the fanned-pages photo sits behind the
+   page header: softly blurred and pushed back with a warm ink gradient so
+   the title and lede stay easy to read. Heavier on the left (behind the
+   text), letting the pages show through on the right. */
+.articles-header{ isolation: isolate; }
+.articles-banner{
+  position: absolute;
+  inset: -16px; /* bleed so the blur never shows a soft edge */
+  z-index: -1;
+  background: var(--ink) url("../media/articles_web.jpg") 70% 42% / cover no-repeat;
+  filter: blur(2.5px) sepia(.35) saturate(.9);
+}
+.articles-banner::after{
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(17,14,12,.94) 0%, rgba(17,14,12,.82) 42%, rgba(17,14,12,.45) 100%),
+    linear-gradient(0deg, rgba(17,14,12,.9) 0%, rgba(17,14,12,0) 38%);
+}
+.articles-header .page-header-inner{ padding-bottom: 16px; }
+@media (max-width: 860px){
+  .articles-banner{ background-position: 60% 40%; }
+  .articles-banner::after{
+    background:
+      linear-gradient(90deg, rgba(17,14,12,.92) 0%, rgba(17,14,12,.72) 100%),
+      linear-gradient(0deg, rgba(17,14,12,.9) 0%, rgba(17,14,12,0) 40%);
+  }
+}
+
+/* Articles — subheads, pull quotes and source link inside in-page articles
+   (the WeScreenplay piece). Fraunces subheads, italic quotes with the rose
+   rule, and a mono source link in the same voice as .screenplay-read. */
+.article-entry .article-body .article-subhead{
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  line-height: 1.3;
+  color: var(--parchment);
+  max-width: 60ch;
+  margin: 2em 0 .8em;
+}
+.article-entry .article-body .article-quote{
+  margin: 0 0 1.2em;
+  padding: 2px 0 2px 20px;
+  border-left: 2px solid var(--rose);
+  max-width: 64ch;
+}
+.article-entry .article-body .article-quote p{
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--parchment);
+}
+.article-source{ margin: 22px 0 0 !important; }
+.article-source a{
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color .3s var(--ease);
+}
+.article-source a:hover, .article-source a:focus-visible{ color: var(--rose); }
+
+/* ==========================================================================
+   FILM page (film.html)
+   Live Action, Claymation, Screenplays and Music, formerly four pages, now
+   tabs on one page. The header reuses the .page-header + pink ripple
+   treatment from Screenplays/Articles. The tab bar sticks just under the
+   fixed site nav so the categories stay in reach while scrolling. Tabs use
+   the site's Fraunces display voice (like the About page tabs), with the
+   active one in --brass-light and a brass underline.
+   ========================================================================== */
+.film-header{
+  position: relative;
+  overflow: clip;
+  padding-bottom: 36px;
+  border-bottom: 0;
+}
+.film-header .mission-glow,
+.film-header .mission-rings{ width: 340px; height: 340px; right: -80px; }
+.film-header .page-header-inner{ position: relative; z-index: 1; }
+@media (max-width: 860px){
+  .film-header .mission-glow,
+  .film-header .mission-rings{ width: 240px; height: 240px; right: -100px; }
+}
+@media (max-width: 640px){
+  .film-header .mission-glow,
+  .film-header .mission-rings{ display: none; }
+}
+
+.film-tabs-bar{
+  position: sticky;
+  top: var(--nav-h);
+  z-index: 400;
+  background: rgba(16,13,10,.92);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.film-tabs{
+  display: flex;
+  gap: clamp(28px, 4.5vw, 64px);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.film-tabs::-webkit-scrollbar{ display: none; }
+.film-tab{
+  flex: none;
+  position: relative;
+  padding: 22px 0 20px;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.3vw, 1.9rem);
+  line-height: 1.1;
+  color: var(--parchment-45);
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color .35s var(--ease);
+}
+.film-tab::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  height: 2px;
+  background: var(--brass-light);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .45s var(--ease);
+}
+.film-tab:hover{ color: var(--parchment-70); }
+.film-tab.is-active{ color: var(--brass-light); }
+.film-tab.is-active::after{ transform: scaleX(1); }
+.film-tab:focus-visible{ outline: 2px solid var(--brass-light); outline-offset: 4px; }
+
+.film-panel[hidden]{ display: none; }
+.film-panel:not([hidden]){ animation: about-panel-in .6s var(--ease); }
+.film-panel{ scroll-margin-top: calc(var(--nav-h) + 80px); }
+
+/* spacing now that each section sits under the tab bar instead of at the
+   top of its own page (those tops used to clear the fixed nav) */
+.film-panel .la-reel{ padding-top: 64px; }
+.film-panel .clay-section{ padding-top: 72px; }
+.film-panel-intro{ padding: 64px 0 0; }
+.film-panel-intro .lede{ margin: 0; }
+.film-panel .screenplay-section{ padding-top: 56px; }
+.film-panel-title{ font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.05; font-weight: 400; }
+
+@media (max-width: 640px){
+  .film-tab{ padding: 16px 0 14px; }
+  .film-panel .la-reel{ padding-top: 40px; }
+  .film-panel .clay-section{ padding-top: 52px; }
+  .film-panel-intro{ padding-top: 44px; }
+}
+@media (min-width: 641px){
+  .film-tabs-bar{ top: calc(var(--nav-h) + 20px); } /* matches the taller nav bar at this width */
+}
+@media (max-width: 480px){
+  .film-tabs{ gap: 18px; }
+  .film-tab{ font-size: 1.02rem; }
+}
+
+/* ---- Film banner: the 2026 cinematography reel plays behind the "Film"
+   header while the Live Action tab is open (.has-banner, toggled by
+   js/main.js). Taller header with the title at the bottom-left; the video
+   is darkened most behind the text and along the bottom so the tab bar
+   below meets it cleanly. The ripple is hidden while the reel is showing. */
+.film-banner,
+.film-banner-mute,
+.film-banner-caption{ display: none; }
+.film-header.has-banner{
+  isolation: isolate;
+  min-height: clamp(460px, 68vh, 720px);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 44px;
+}
+.film-header.has-banner > .container{ width: 100%; }
+.film-header.has-banner .mission-glow,
+.film-header.has-banner .mission-rings{ display: none; }
+.film-header.has-banner .film-banner{
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #000;
+  overflow: hidden;
+}
+.film-banner-video{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.film-banner::after{
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(0deg, rgba(16,13,10,.96) 0%, rgba(16,13,10,.35) 45%, rgba(16,13,10,.55) 100%),
+    linear-gradient(90deg, rgba(16,13,10,.6) 0%, rgba(16,13,10,0) 60%);
+}
+.film-header.has-banner .film-banner-caption{
+  display: block;
+  margin: 14px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--parchment-70);
+}
+.film-header.has-banner .film-banner-mute{
+  display: flex;
+  position: absolute;
+  right: clamp(20px, 4vw, 48px);
+  bottom: 40px;
+  z-index: 2;
+  width: 52px; height: 52px;
+  align-items: center; justify-content: center;
+  background: rgba(16,13,10,.68);
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--parchment);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px -6px rgba(0,0,0,.6);
+  cursor: pointer;
+  transition: border-color .3s ease, color .3s ease;
+}
+.film-banner-mute:hover,
+.film-banner-mute:focus-visible{ border-color: var(--brass-light); color: var(--brass-light); }
+.film-panel .live-action-header{ padding-top: 64px; }
+@media (max-width: 640px){
+  .film-header.has-banner{ min-height: 360px; padding-bottom: 32px; }
+  .film-header.has-banner .film-banner-mute{ width: 44px; height: 44px; bottom: 30px; }
+  .film-panel .live-action-header{ padding-top: 44px; }
+}
+/* Film page: slideshow now follows the clips (above the closing set photo) */
+.film-panel .clips-section{ padding-top: 120px; padding-bottom: 60px; }
+.film-panel .slideshow-section{ padding-top: 60px; padding-bottom: 120px; }
+@media (max-width: 640px){
+  .film-panel .clips-section{ padding-top: 76px; padding-bottom: 40px; }
+  .film-panel .slideshow-section{ padding-top: 40px; padding-bottom: 76px; }
+}
+
+/* ---- Film page as one continuous page: all four sections stacked, each
+   opening with the same eyebrow + title as Live Action and a hairline
+   divider between them. Sections land just under the pinned tab bar. */
+.film-panel[hidden]{ display: block; }
+.film-panel:not([hidden]){ animation: none; }
+.film-panel + .film-panel{ border-top: 1px solid var(--line); }
+.film-section-head{ padding: 96px 0 0; }
+.film-section-head .eyebrow{ margin-bottom: 20px; }
+.film-section-head .lede{ margin: 18px 0 0; }
+.film-panel .clay-section{ padding-top: 56px; }
+.film-panel .screenplay-section{ padding-top: 56px; }
+.film-panel-music .quote-block{ padding-top: 64px; }
+@media (max-width: 640px){
+  .film-section-head{ padding-top: 64px; }
+  .film-panel .clay-section,
+  .film-panel .screenplay-section{ padding-top: 40px; }
+  .film-panel-music .quote-block{ padding-top: 44px; }
+}
+/* Articles — "Read more" that links out to the full piece (same pill as the
+   in-page Read more toggle) */
+a.article-link{ display: inline-block; text-decoration: none; }
+
+/* ---- Film page: Live Action clips as a 2 x 2 thumbnail grid. Clicking one
+   opens it in the shared video modal, enlarged and centered on top. */
+.la-clip-grid{ grid-template-columns: repeat(2, 1fr); gap: 44px 32px; }
+.la-clip-grid .clip-thumb{ aspect-ratio: 16 / 9; position: relative; overflow: hidden; }
+.la-clip-grid .clip-thumb img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.la-clip-grid .clip-play{ width: 64px; height: 64px; }
+.la-clip-title{
+  display: block;
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  color: var(--parchment);
+  transition: color .3s var(--ease);
+}
+.la-clip-note{
+  display: block;
+  margin-top: 6px;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--parchment-45);
+}
+.la-clip-grid .clip-card:hover .la-clip-title,
+.la-clip-grid .clip-card:focus-visible .la-clip-title{ color: var(--brass-light); }
+.la-video-modal .video-modal-inner{
+  max-width: none;
+  width: min(92vw, calc((100vh - 170px) * 16 / 9), 1400px);
+}
+.la-video-modal.is-open .video-modal-inner{ animation: la-modal-in .35s var(--ease); }
+@keyframes la-modal-in{ from{ opacity: 0; transform: scale(.96); } to{ opacity: 1; transform: none; } }
+@media (max-width: 640px){
+  .la-clip-grid{ gap: 28px 14px; }
+  .la-clip-grid .clip-play{ width: 44px; height: 44px; }
+  .la-clip-note{ font-size: 12px; }
+}
+
+/* ---- Film page: slideshow as the 4th tile; opens in the same large
+   centered overlay as the clips. Tile icon is an "expand" glyph. */
+.clip-open svg{ margin-left: 0; width: 18px; height: 18px; }
+.slideshow-modal .slideshow{ outline: none; }
+.slideshow-modal .slideshow-frame{ margin: 0; }
+.slideshow-modal .slideshow-meta{ margin-top: 14px; }
+.film-panel .clips-section{ padding-top: 96px; }
+@media (max-width: 640px){ .film-panel .clips-section{ padding-top: 64px; } }
+
+/* ---- Film page: banner 8% shorter (was clamp(460px, 68vh, 720px)) ---- */
+.film-header.has-banner{ min-height: clamp(423px, 62.5vh, 662px); }
+@media (max-width: 640px){ .film-header.has-banner{ min-height: 331px; } }
+
+/* ---- Film page: section dividers. A brass hairline that draws outward
+   from the center as it scrolls into view, meeting a small ripple mark
+   (the site's ring motif) that pulses gently. Replaces the plain rule. */
+.film-panel + .film-panel{ border-top: 0; }
+.film-divider{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: min(1100px, calc(100% - 48px));
+  margin: 0 auto;
+  padding-top: 88px;
+}
+.film-divider-line{
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(231,199,102,0), rgba(231,199,102,.75));
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 1.2s var(--ease) .15s;
+}
+.film-divider-line:last-child{
+  background: linear-gradient(90deg, rgba(231,199,102,.75), rgba(231,199,102,0));
+  transform-origin: left center;
+}
+.film-divider.is-visible .film-divider-line{ transform: scaleX(1); }
+.film-divider-mark{
+  position: relative;
+  flex: none;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--brass-light);
+  box-shadow: 0 0 14px rgba(231,199,102,.5);
+}
+.film-divider-mark::before,
+.film-divider-mark span{
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid var(--rose-ring);
+  opacity: 0;
+}
+.film-divider.is-visible .film-divider-mark::before{ animation: film-divider-ripple 3.2s var(--ease) infinite .6s; }
+.film-divider.is-visible .film-divider-mark span{ animation: film-divider-ripple 3.2s var(--ease) infinite 2.2s; }
+@keyframes film-divider-ripple{
+  0%{ transform: scale(.6); opacity: .9; }
+  100%{ transform: scale(2.6); opacity: 0; }
+}
+.film-divider + .film-section-head{ padding-top: 56px; }
+@media (max-width: 640px){
+  .film-divider{ padding-top: 56px; width: calc(100% - 40px); gap: 12px; }
+  .film-divider + .film-section-head{ padding-top: 40px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .film-divider-line{ transform: none; transition: none; }
+  .film-divider-mark::before, .film-divider-mark span{ animation: none !important; }
+}
+
+/* ---- Film banner: another 8% shorter, and half the darkening ---- */
+.film-header.has-banner{ min-height: clamp(389px, 57.5vh, 609px); }
+@media (max-width: 640px){ .film-header.has-banner{ min-height: 305px; } }
+.film-banner::after{
+  background:
+    linear-gradient(0deg, rgba(16,13,10,.48) 0%, rgba(16,13,10,.175) 45%, rgba(16,13,10,.275) 100%),
+    linear-gradient(90deg, rgba(16,13,10,.3) 0%, rgba(16,13,10,0) 60%);
+}
+/* keep the title readable over brighter frames now that the tint is lighter */
+.film-header.has-banner h1,
+.film-header.has-banner .eyebrow,
+.film-header.has-banner .film-banner-caption{ text-shadow: 0 2px 18px rgba(0,0,0,.55); }
+
+/* About: closing invitation line, set apart in the brass accent */
+.about-panel .about-cta{ color: var(--brass-light); margin-top: 1.6em; }
+
+/* About: single section now (My Passion / Experience removed), so the tab
+   row is just a heading. The bio's line-length cap is lifted so that once
+   the writing flows past the bottom of the photo it spreads across the
+   full width of the page instead of staying in a narrow column. */
+.about-heading{
+  margin: 0;
+  padding: 0 0 4px;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  line-height: inherit;
+  color: var(--brass-light);
+}
+.about-panel p.lede{ max-width: none; }
+
+/* About: page title in the same eyebrow + large display title pattern as
+   the other pages (e.g. "Work / Film"), top-aligned with the photo, with
+   the bio starting right beneath it. */
+.about-head{ margin: 0 0 clamp(26px, 3.4vw, 40px); }
+.about-head .eyebrow{ margin-bottom: 18px; }
+.about-head h1{ margin: 0; }
+@media (max-width: 640px){
+  .about-head{ margin-bottom: 22px; }
+}
+
+/* Footer on every page except Home: a shade lighter than the page, with a
+   hairline where it starts, so it reads as its own band. (Home keeps its
+   translucent footer over the background photo.) */
+body:not(.has-photo-bg) .site-footer{
+  background: #18130F; /* between --ink and --panel */
+  border-top: 1px solid var(--line-strong);
+}
+
+/* Film page: production-credit note between the reel banner and the tabs */
+.film-credit-note{ padding: 22px 0 18px; }
+.film-credit-note p{
+  margin: 0;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--parchment-70);
+}
+@media (max-width: 640px){
+  .film-credit-note{ padding: 16px 0 14px; }
+  .film-credit-note p{ font-size: 14px; }
+}
+
+/* Film page: Documentary section (placeholder) shares Music's spacing; with
+   five tabs, let the tab row wrap to two lines on small phones rather than
+   hiding tabs off-screen. */
+.film-panel-documentary .quote-block{ padding-top: 64px; }
+@media (max-width: 640px){ .film-panel-documentary .quote-block{ padding-top: 44px; } }
+@media (max-width: 480px){
+  .film-tabs{ flex-wrap: wrap; row-gap: 0; column-gap: 18px; overflow-x: visible; }
+  .film-tab{ padding: 12px 0 10px; }
+}
+
+/* Podcasts page: "Built in Silicon" (upcoming series) */
+.podcast-upcoming-section{ border-top: 1px solid var(--line); }
+.podcast-year{ color: var(--parchment-45); font-size: .7em; }
+.podcast-upcoming{ max-width: 68ch; }
+.podcast-upcoming .podcast-closer{
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  color: var(--brass-light);
+  margin-top: 1.4em;
+}
+.podcast-upcoming .podcast-status-note{
+  margin-top: 1.6em;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--parchment-45);
+}
+/* Built in Silicon now comes first; the divider moves to We Are Rivers */
+.podcast-upcoming-section{ border-top: 0; }
+.podcast-upcoming-section + .podcast-feature-section{ border-top: 1px solid var(--line); }
+
+/* Built in Silicon: text on the left, microchip photo on the right; the
+   photo sits first (under the heading) when stacked on small screens. */
+.podcast-upcoming-layout{
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+.podcast-upcoming-media{ margin: 0; position: sticky; top: calc(var(--nav-h) + 40px); }
+.podcast-upcoming-media .press-frame{ margin: 0; }
+.podcast-upcoming-media img{ display: block; width: 100%; height: auto; }
+@media (max-width: 860px){
+  .podcast-upcoming-layout{ grid-template-columns: 1fr; gap: 32px; }
+  .podcast-upcoming-media{ order: -1; position: static; }
+}
+/* local-video player: show the whole frame (the reel is wider than 16:9) */
+.clay-video-modal-player{ object-fit: contain !important; background: #000; }

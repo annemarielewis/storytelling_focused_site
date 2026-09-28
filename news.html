@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News | A.M. LEWIS: Film Producer, Podcaster, Storyteller</title>
+<meta name="description" content="Press coverage, industry recognition, and news about A.M. Lewis — Deadline Hollywood, Coverfly, WeScreenplay, and Arts October.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- Favicon — cropped/downsized from the existing ripple-rings mark in
+     media/logo.png (see .mission-glow/.mission-rings, the same motif used
+     throughout the site), not a new graphic. -->
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="media/favicon-180.png">
+<link rel="shortcut icon" href="media/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- No .intro-pending on this page's <body> — same as about.html/screenplays.html/
+     live-action.html/classes.html/music.html/claymation.html, that class/
+     timeline only applies to the homepage's freeze-frame hero. This page has
+     no hero, so the nav is visible immediately. -->
+
+<!-- ============================= NAV ============================= -->
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand-lockup">
+      <img src="media/oscars.png" alt="" class="brand-logo">
+      <span class="brand">A.M. Lewis</span>
+    </a>
+    <div class="nav-controls">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="classes.html">Classes</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Accolades
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="news.html">In the News</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Work
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="film.html">Film Production</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="articles.html">Articles</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================= PAGE HEADER =============================
+     Same interior-page header used by screenplays.html: .page-header +
+     the homepage MISSION section's ripple (.mission-glow/.mission-rings/
+     .ring/@keyframes mission-ripple), reused verbatim and only resized via
+     the .news-header scoping rules in style.css (same technique as
+     .screenplays-header) so it complements this header without bleeding
+     into the coverage below. A short "as featured in" outlet strip reuses
+     .reel-meta's existing pill styling (defined for the SCORES page,
+     unused until now) rather than inventing a new tag component. -->
+<header class="page-header news-header">
+  <div class="mission-glow" aria-hidden="true"></div>
+  <div class="mission-rings" aria-hidden="true">
+    <span class="ring ring-1"></span>
+    <span class="ring ring-2"></span>
+    <span class="ring ring-3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="container page-header-inner">
+    <span class="eyebrow">Press &amp; Recognition</span>
+    <h1>News</h1>
+    <p class="lede">Coverage, honors, and milestones from Ripple House's ongoing work — press features, industry recognition, and company updates as they happen.</p>
+    <div class="reel-meta news-outlets">
+      <span>Deadline Hollywood</span>
+      <span>WeScreenplay</span>
+      <span>Coverfly</span>
+      <span>Arts October</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================= FEATURED STORY =============================
+     deadline1/deadline2/deadline3 are sequential captures of the same
+     Deadline Hollywood article (headline, opening paragraphs, the Best
+     Unproduced Projects list with the highlighted mention) and are
+     presented as a single unit — one .press-feature card (new component,
+     see style.css: same bordered-panel/shadow language as .video-frame,
+     just auto-height instead of a fixed 16:9 crop so none of the
+     screenshots gets cropped) holding the images stacked with hairline
+     dividers, one shared kicker/caption, and no separate headings per
+     image. .frame-tag/.dot (defined for .video-frame, unused until now)
+     labels the outlet on the lead image.
+     A fourth screenshot (deadline4.jpg, the article's closing line about
+     the list's writers/Outlander/The Crow reboot) was removed per request
+     — the stack and .press-feature-media auto-height naturally close the
+     gap with no layout changes needed.
+     Moved to lead the page (was previously second, after the page header
+     it followed More Coverage) — pure reorder, no other change: this is
+     now the first content section, and More Coverage/Additional
+     recognition moved to the very bottom of the page instead. -->
+<section class="section news-feature-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Featured</span>
+      <h2>Coverfly's Best of 2024 List</h2>
+    </div>
+    <div class="press-feature reveal-on-scroll">
+      <div class="press-feature-media">
+        <div class="press-frame press-frame-stack">
+          <span class="frame-tag"><span class="dot"></span>Deadline Hollywood</span>
+          <img src="media/news/deadline1.jpg" alt="Deadline Hollywood headline: &quot;Coverfly Releases List Of Lists To Highlight Up and Coming Screenwriting Talent,&quot; by Peter White, December 8, 2023.">
+          <img src="media/news/deadline2.jpg" alt="Opening paragraphs of the Deadline article: Coverfly has curated a list of lists of rising screenwriters, aggregating fellowships, competitions, and annual lists such as the Nicholl Fellowship, Final Draft's Big Break, and the Blood List.">
+          <img src="media/news/deadline3.jpg" alt="Excerpt from the Deadline article listing Coverfly's Best Unproduced Projects, with &quot;A.M Lewis' All The Beautiful Things&quot; highlighted among the selections.">
+        </div>
+      </div>
+      <div class="press-feature-copy">
+        <p class="press-kicker">Deadline Hollywood — Dec 8, 2023</p>
+        <h3>Coverfly Releases List Of Lists To Highlight Up and Coming Screenwriting Talent</h3>
+        <p>All the Beautiful Things was named to Coverfly's Best Unproduced Projects list, earning Ripple House its first mention in Deadline Hollywood alongside a slate of writers with credits on series including Outlander, Snowfall, and The Crow reboot.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= MORE COVERAGE =============================
+     wescreenplay -> finalist -> artsmonth, in the order requested. Built
+     entirely from .reel/.reel-index/.reel-meta (defined for the SCORES
+     page, unused until now) — its existing alternating-side grid and
+     nth-child(even) rule give the second entry (finalist) its opposite
+     orientation automatically, with no new layout code needed. Each image
+     sits in the same new .press-frame component as the feature above.
+     wescreenplay and artsmonth link out to their real published URLs;
+     finalist is a standalone Coverfly stats capture with no corresponding
+     article, so — same convention as the "Girls" entry on screenplays.html
+     — it has no read-more affordance.
+     Moved to the very bottom of the page per request (was previously
+     second, right after Featured Story) — pure reorder, no other change:
+     Featured Story now leads directly after the page header, and this
+     section is now the last piece of content before the footer. -->
+<section class="section-tight news-more-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">More Coverage</span>
+      <h2>Additional recognition</h2>
+    </div>
+    <div class="reel-list reveal-on-scroll">
+
+      <article class="reel">
+        <div class="press-frame">
+          <span class="frame-tag"><span class="dot"></span>Coverfly</span>
+          <img src="media/news/finalist.jpg" alt="Coverfly stats badge for All the Beautiful Things: Top 3% of discoverable projects on Coverfly, and 3 Finalist Awards, dated March 7, 2024.">
+        </div>
+        <div>
+          <span class="reel-index">03</span>
+          <p class="press-kicker">Coverfly — Recognition</p>
+          <h3>Top 3% on Coverfly, plus three Finalist Awards</h3>
+          <p>All the Beautiful Things ranked in the top 3% of discoverable projects on Coverfly and earned three Finalist Award nominations — recognition from one of the industry's leading screenplay-coverage platforms.</p>
+          <div class="reel-meta">
+            <span>Top 3% Overall</span>
+            <span>3 Finalist Awards</span>
+            <span>March 2024</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="reel">
+        <div class="press-frame">
+          <span class="frame-tag"><span class="dot"></span>Arts October</span>
+          <img src="media/news/artsmonth.jpg" alt="October Is Arts Month feature introducing Annemarie (A.M.) Lewis, part of the site's Artist-a-Day series.">
+        </div>
+        <div>
+          <span class="reel-index">04</span>
+          <p class="press-kicker">Arts October — Artist Feature</p>
+          <h3>Artist of the Day: A.M. Lewis</h3>
+          <p>Featured as part of Arts October's Artist-a-Day series, spotlighting Lewis's path from a small town in New York to directing and starring in her first feature film in Colorado Springs.</p>
+          <div class="reel-meta">
+            <span>Artist-a-Day Feature</span>
+            <span>#ArtsOctober</span>
+          </div>
+          <a class="btn news-read" href="https://artsoctober.com/artist_a_day/a-m-lewis/" target="_blank" rel="noopener">Read the Feature &rarr;</a>
+        </div>
+      </article>
+
+      <article class="reel">
+        <div class="press-frame">
+          <span class="frame-tag"><span class="dot"></span>WeScreenplay</span>
+          <img src="media/news/wescreenplay.jpg" alt="WeScreenplay article header: &quot;Timeless Advice From 8 of the Oldest Screenwriters Still Alive,&quot; by Annemarie Lewis, September 30, 2024.">
+        </div>
+        <div>
+          <span class="reel-index">02</span>
+          <p class="press-kicker">WeScreenplay — Contributor Byline</p>
+          <h3>Timeless Advice From 8 of the Oldest Screenwriters Still Alive</h3>
+          <p>A byline for WeScreenplay, where Lewis wrote about longevity and craft in the industry through the lens of eight veteran screenwriters still working today.</p>
+          <div class="reel-meta">
+            <span>By Annemarie Lewis</span>
+            <span>Sept 30, 2024</span>
+            <span>Diverse Voices</span>
+          </div>
+          <a class="btn news-read" href="https://www.wescreenplay.com/blog/advice-from-the-oldest-screenwriters-still-alive/" target="_blank" rel="noopener">Read the Article &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="classes.html">Classes</a>
+          <a href="about.html">About</a>
+          <a href="index.html">Home</a>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="film.html">Film Production</a>
+          <a href="podcasts.html">Podcasts</a>
+          <a href="articles.html">Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+19703190560">(970) 319-0560</a>
+          <a href="mailto:alewis@ripplehouse.media">alewis@ripplehouse.media</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ripple House</span>
+      <span>Built as a static site</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

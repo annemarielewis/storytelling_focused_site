@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Film | A.M. LEWIS: Film Producer, Podcaster, Storyteller</title>
+<meta name="description" content="Film work by A.M. Lewis — live action, claymation, screenplays, and music, in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- Favicon — cropped/downsized from the existing ripple-rings mark in
+     media/logo.png (see .mission-glow/.mission-rings, the same motif used
+     throughout the site), not a new graphic. -->
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="media/favicon-180.png">
+<link rel="shortcut icon" href="media/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- No .intro-pending on this page's <body> — same as about.html, that
+     class/timeline only applies to the homepage's freeze-frame hero. This
+     page has no hero, so the nav is visible immediately, same as About. -->
+
+<!-- ============================= NAV ============================= -->
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand-lockup">
+      <img src="media/oscars.png" alt="" class="brand-logo">
+      <span class="brand">A.M. Lewis</span>
+    </a>
+    <div class="nav-controls">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="classes.html">Classes</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Accolades
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="news.html">In the News</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Work
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="film.html">Film Production</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="articles.html">Articles</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================= FILM =============================
+     One continuous page for Live Action, Claymation, Screenplays and Music
+     (each was its own page before; the old URLs now forward here to the
+     matching section). The tab bar sticks under the site nav while
+     scrolling; each tab smoothly scrolls to its section, and the
+     highlighted tab follows along as you scroll — see "Film page section
+     nav" in js/main.js. -->
+<header class="page-header film-header has-banner">
+  <!-- Cinematography reel (2026) as the header banner — plays muted behind
+       "Film" while the Live Action tab is open, darkened so the title reads.
+       The round button unmutes it. Hidden and paused on the other tabs.
+       See "Film banner" in css/style.css and "Film page tabs" in js/main.js. -->
+  <div class="film-banner">
+    <video class="film-banner-video" src="media/cinematography_reel_web.mp4" autoplay muted loop playsinline preload="auto" disablepictureinpicture disableremoteplayback aria-label="2026 producing and directing reel"></video>
+  </div>
+  <button type="button" class="film-banner-mute" aria-pressed="false" aria-label="Unmute reel">
+    <svg class="mute-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+      <g class="mute-icon-muted">
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </g>
+      <g class="mute-icon-on">
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+      </g>
+    </svg>
+  </button>
+  <div class="mission-glow" aria-hidden="true"></div>
+  <div class="mission-rings" aria-hidden="true">
+    <span class="ring ring-1"></span>
+    <span class="ring ring-2"></span>
+    <span class="ring ring-3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="container page-header-inner">
+    <span class="eyebrow">Work</span>
+    <h1>Film</h1>
+    <p class="film-banner-caption">2026’s Producing/Directing Reel</p>
+  </div>
+</header>
+
+<div class="film-credit-note">
+  <div class="container">
+    <p>All content A.M. Lewis has 100% produced and directed through pre, set, and post production (unless noted).</p>
+  </div>
+</div>
+<div class="film-tabs-bar">
+  <div class="container">
+    <nav class="film-tabs" aria-label="Film sections">
+      <a href="#live-action" class="film-tab is-active" aria-current="true">Live Action</a>
+      <a href="#documentary" class="film-tab">Documentary</a>
+      <a href="#claymation" class="film-tab">Claymation</a>
+      <a href="#screenplays" class="film-tab">Screenplays</a>
+      <a href="#music" class="film-tab">Music</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============================= LIVE ACTION ============================= -->
+<section class="film-panel film-panel-live-action" id="live-action" aria-label="Live Action">
+<div class="page-header live-action-header">
+  <div class="mission-glow" aria-hidden="true"></div>
+  <div class="mission-rings" aria-hidden="true">
+    <span class="ring ring-1"></span>
+    <span class="ring ring-2"></span>
+    <span class="ring ring-3"></span>
+  </div>
+  <div class="container live-action-header-inner">
+    <div class="page-header-inner">
+      <span class="eyebrow">Film</span>
+      <h2 class="film-panel-title">Live Action</h2>
+    </div>
+    <div class="live-action-header-media">
+      <div class="press-frame">
+        <img src="media/live-action/set1.jpg" alt="Behind-the-scenes photos from the set of All the Beautiful Things.">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= CLIPS =============================
+     Both clips reuse .video-frame (same component as the slideshow above
+     and the homepage/About page videos) so the whole page reads as one
+     consistent, cinematic system. The Vimeo embed carries the required
+     "Clips from All the Beautiful Things" title; the YouTube embed follows
+     directly beneath it with matching framing/spacing (see ".clip-frame +
+     .clip-frame" in style.css) so the two read as one curated pairing
+     rather than unrelated embeds. Both iframes fill their 16:9 frame via
+     the existing ".video-frame iframe" rule — nothing new needed there. -->
+<section class="section clips-section reveal-on-scroll">
+  <div class="container">
+    <!-- The three clips plus the slideshow as a 2 x 2 grid of thumbnails (same .clip-card look as
+         Claymation). Clicking one opens it large, centered, on top of the page
+         in #video-modal below, and it starts playing; Esc, the × or clicking
+         outside closes it. Thumbnails load from Vimeo/YouTube. -->
+    <ul class="clip-grid la-clip-grid">
+      <li class="clip-item">
+        <button type="button" class="clip-card" data-video-popup="https://player.vimeo.com/video/920431120?h=c899710018" data-video-label="All the Beautiful Things — Spec Clips">
+          <span class="clip-index">01</span>
+          <span class="press-frame clip-thumb">
+            <img src="https://i.vimeocdn.com/video/1810459833-6c1434b37ed1d3030202872fbe6dbaed9f787b7d5cf5a93f35648ee7f8418589-d_1280?region=us" alt="All the Beautiful Things — Spec Clips. Click to play." loading="lazy">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="la-clip-title">All the Beautiful Things — Spec Clips</span>
+        </button>
+      </li>
+      <li class="clip-item">
+        <button type="button" class="clip-card" data-video-popup="https://www.youtube.com/embed/6K8br5_e7X4?si=GWIWoICoUulOXgTb" data-video-label="Live Action Footage">
+          <span class="clip-index">02</span>
+          <span class="press-frame clip-thumb">
+            <img src="https://i.ytimg.com/vi/6K8br5_e7X4/hqdefault.jpg" alt="Live Action Footage. Click to play." loading="lazy">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="la-clip-title">Live Action Footage</span>
+        </button>
+      </li>
+      <li class="clip-item">
+        <button type="button" class="clip-card" data-video-popup="https://player.vimeo.com/video/662460693?h=b132354c60" data-video-label="Ornithology (And Other Hobbies You Can Take Too Far)">
+          <span class="clip-index">03</span>
+          <span class="press-frame clip-thumb">
+            <img src="https://i.vimeocdn.com/video/1503807509-5713baa7bca5a71b5eb9f4f8d9fbdc3bc540d10ce83a057e72a22c4b327fafc4-d_1280?region=us" alt="Ornithology (And Other Hobbies You Can Take Too Far). Click to play." loading="lazy">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="la-clip-title">Ornithology (And Other Hobbies You Can Take Too Far)</span>
+          <span class="la-clip-note">*Though not a Ripple House film, Lewis was the lead</span>
+        </button>
+      </li>
+      <li class="clip-item">
+        <button type="button" class="clip-card" data-slideshow-open aria-haspopup="dialog">
+          <span class="clip-index">04</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/slideshow/slide-001.jpg" alt="All the Beautiful Things slideshow. Click to open." loading="lazy">
+            <span class="clip-play clip-open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14h2v4h4v2H4v-6zm14 0h2v6h-6v-2h4v-4z"/></svg></span>
+          </span>
+          <span class="la-clip-title">Slideshow</span>
+          <span class="la-clip-note">104 slides — click through with the arrows</span>
+        </button>
+      </li>
+      <li class="clip-item">
+        <button type="button" class="clip-card" data-clay-video="media/cinematography_reel_web.mp4" data-video-label="2026 Producing/Directing Reel">
+          <span class="clip-index">05</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/reel_thumb.jpg" alt="2026 producing and directing reel. Click to play." loading="lazy">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+          <span class="la-clip-title">2026 Producing/Directing Reel</span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================= MORE FROM THE SET =============================
+     set2 (post-production/editing-suite photos), added at the bottom of the
+     page per request. Same .press-frame framing as the header image above
+     and every other photo/screenshot on the site, in its own .section-tight
+     so it reads as a deliberate closing beat rather than a stray image
+     tacked onto the clips section. -->
+<section class="section-tight live-action-media-section">
+  <div class="container">
+    <div class="press-frame">
+      <img src="media/live-action/set2.jpg" alt="Post-production and editing photos from All the Beautiful Things.">
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- ============================= DOCUMENTARY ============================= -->
+<section class="film-panel film-panel-documentary" id="documentary" aria-label="Documentary and Stock Footage">
+<div class="film-divider reveal-on-scroll" aria-hidden="true">
+  <span class="film-divider-line"></span>
+  <span class="film-divider-mark"><span></span></span>
+  <span class="film-divider-line"></span>
+</div>
+<div class="film-section-head">
+  <div class="container">
+    <span class="eyebrow">Film</span>
+    <h2 class="film-panel-title">Documentary and Stock Footage</h2>
+  </div>
+</div>
+<section class="quote-block">
+  <div class="container">
+    <blockquote class="music-message">Soon to be uploaded: In the middle of a website overhaul and appreciate your patience!</blockquote>
+  </div>
+</section>
+</section>
+
+<!-- ============================= CLAYMATION ============================= -->
+<section class="film-panel film-panel-claymation" id="claymation" aria-label="Claymation">
+<div class="film-divider reveal-on-scroll" aria-hidden="true">
+  <span class="film-divider-line"></span>
+  <span class="film-divider-mark"><span></span></span>
+  <span class="film-divider-line"></span>
+</div>
+<div class="film-section-head">
+  <div class="container">
+    <span class="eyebrow">Film</span>
+    <h2 class="film-panel-title">Claymation</h2>
+  </div>
+</div>
+<!-- ============================= CLAYMATION =============================
+     Every clay1–clay7 file from the claymation/ folder, optimized for web
+     playback (H.264, faststart) and laid out in a numbered thumbnail grid —
+     same mono index-number convention as .reel-index/.review-index
+     elsewhere on the site. Each card is the existing .press-frame
+     component (bordered/shadowed panel language, unchanged) holding an
+     auto-generated mid-clip thumbnail, with a centered play control reusing
+     the .popup-trigger .play-dot circle-button styling already defined for
+     this exact purpose (previously unused). Clicking a card opens the
+     shared #clay-video-modal below rather than navigating away, so the
+     grid itself stays put. See "CLAYMATION page" in style.css/main.js for
+     the .clip-grid/.clip-card system and its modal wiring — a new,
+     self-contained component that doesn't touch the pre-existing (also
+     unused elsewhere) iframe-based #video-modal/[data-video-popup]. -->
+<section class="section clay-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Stop-Motion</span>
+      <h2>Fine Cuts</h2>
+    </div>
+    <ul class="clip-grid">
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/clay1.mp4" data-video-label="Claymation — Clip 01">
+          <span class="clip-index">01</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/clay1.jpg" alt="Thumbnail from Claymation clip 1 of 7. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/clay2.mp4" data-video-label="Claymation — Clip 02">
+          <span class="clip-index">02</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/clay2.jpg" alt="Thumbnail from Claymation clip 2 of 7. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/clay3.mp4" data-video-label="Claymation — Clip 03">
+          <span class="clip-index">03</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/clay3.jpg" alt="Thumbnail from Claymation clip 3 of 7. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/clay4.mp4" data-video-label="Claymation — Clip 04">
+          <span class="clip-index">04</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/clay4.jpg" alt="Thumbnail from Claymation clip 4 of 7. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/clay5.mp4" data-video-label="Claymation — Clip 05">
+          <span class="clip-index">05</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/clay5.jpg" alt="Thumbnail from Claymation clip 5 of 7. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/clay6.mp4" data-video-label="Claymation — Clip 06">
+          <span class="clip-index">06</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/clay6.jpg" alt="Thumbnail from Claymation clip 6 of 7. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/clay7.mp4" data-video-label="Claymation — Clip 07">
+          <span class="clip-index">07</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/clay7.jpg" alt="Thumbnail from Claymation clip 7 of 7. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- ============================= STORYBOARD =============================
+     Every storyboard1–storyboard5 file from the claymation/ folder (the
+     .mov source is transcoded to .mp4 like the rest, for consistent
+     cross-browser playback), same .clip-grid/.clip-card system as
+     Claymation above so the two sections read as one connected pair
+     rather than two different galleries. -->
+<section class="section storyboard-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Behind the Scenes</span>
+      <h2>Storyboard</h2>
+    </div>
+    <ul class="clip-grid">
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/storyboard1.mp4" data-video-label="Storyboard — 01">
+          <span class="clip-index">01</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/storyboard1.jpg" alt="Thumbnail from Storyboard 1 of 5. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/storyboard2.mp4" data-video-label="Storyboard — 02">
+          <span class="clip-index">02</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/storyboard2.jpg" alt="Thumbnail from Storyboard 2 of 5. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/storyboard3.mp4" data-video-label="Storyboard — 03">
+          <span class="clip-index">03</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/storyboard3.jpg" alt="Thumbnail from Storyboard 3 of 5. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/storyboard4.mp4" data-video-label="Storyboard — 04">
+          <span class="clip-index">04</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/storyboard4.jpg" alt="Thumbnail from Storyboard 4 of 5. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+      <li class="clip-item reveal-on-scroll">
+        <button type="button" class="clip-card" data-clay-video="media/claymation/storyboard5.mp4" data-video-label="Storyboard — 05">
+          <span class="clip-index">05</span>
+          <span class="press-frame clip-thumb">
+            <img src="media/claymation/thumbs/storyboard5.jpg" alt="Thumbnail from Storyboard 5 of 5. Click to play.">
+            <span class="clip-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </span>
+        </button>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- ============================= VIDEO MODAL (local playback) =============================
+     Shared by every .clip-card above. Visually this is the exact same
+     .video-modal/.video-modal-inner/.video-modal-close/.video-frame/
+     .video-modal-label component already defined in style.css (built for
+     an iframe embed elsewhere, unused until now) — reused verbatim here,
+     just holding a <video> instead of an <iframe>. New id/attribute
+     (#clay-video-modal / [data-clay-video]) keeps this fully independent
+     of that other, still-unused #video-modal/[data-video-popup] wiring. -->
+<div class="video-modal" id="clay-video-modal">
+  <div class="video-modal-inner">
+    <button type="button" class="video-modal-close" aria-label="Close video">&times;</button>
+    <div class="video-frame">
+      <video class="clay-video-modal-player" controls playsinline preload="none"></video>
+    </div>
+    <p class="video-modal-label"></p>
+  </div>
+</div>
+</section>
+
+<!-- ============================= SCREENPLAYS ============================= -->
+<section class="film-panel film-panel-screenplays" id="screenplays" aria-label="Screenplays">
+<div class="film-divider reveal-on-scroll" aria-hidden="true">
+  <span class="film-divider-line"></span>
+  <span class="film-divider-mark"><span></span></span>
+  <span class="film-divider-line"></span>
+</div>
+<div class="film-section-head">
+  <div class="container">
+    <span class="eyebrow">Film</span>
+    <h2 class="film-panel-title">Screenplays</h2>
+    <p class="lede">Feature and episodic scripts exploring grief, identity, and the family ties that both wound and heal — five stories in various stages, from post-production to the page.</p>
+  </div>
+</div>
+<section class="section screenplay-section">
+  <div class="container">
+    <!-- NDA notice — a small standing informational strip (not the JS-toggled
+         .form-msg used for contact-form feedback elsewhere), built from the
+         same border/panel/accent-color vocabulary as the rest of the site.
+         See "Page notice" in css/style.css. -->
+    <div class="page-notice">
+      <p>All scripts that have not yet been produced are excerpts from their first few pages. If you would like to read the complete feature or series, an NDA is required. Please email <a href="mailto:alewis@ripplehouse.media">alewis@ripplehouse.media</a> to acquire an NDA and receive the full screenplay.</p>
+    </div>
+    <div class="section-head">
+      <span class="eyebrow">Screenplays</span>
+      <h2>Selected work</h2>
+    </div>
+    <div class="screenplay-list reveal-on-scroll">
+
+      <a class="screenplay-entry" href="screenplay_excerpts/atbt.pdf" target="_blank" rel="noopener">
+        <div class="screenplay-entry-head">
+          <h3 class="screenplay-title">All the Beautiful Things</h3>
+          <span class="screenplay-read">Read Screenplay &rarr;</span>
+        </div>
+        <p class="screenplay-meta">Feature Film — Post-Production | Drama</p>
+        <p>A mixed-media (live action + claymation) feature exploring grief, family trauma, and healing. All the Beautiful Things earned recognition for its screenplay on Coverfly's Best of 2024 List and garnered media attention from Deadline Hollywood.</p>
+      </a>
+
+      <a class="screenplay-entry" href="screenplay_excerpts/RTP.pdf" target="_blank" rel="noopener">
+        <div class="screenplay-entry-head">
+          <h3 class="screenplay-title">Running to Places</h3>
+          <span class="screenplay-read">Read Screenplay &rarr;</span>
+        </div>
+        <p class="screenplay-meta">10-Episode Limited Series — Drama</p>
+        <p>A live-action series exploring resentment, addiction, and the pursuit of identity through competitive extreme sports.</p>
+      </a>
+
+      <a class="screenplay-entry" href="screenplay_excerpts/priest.pdf" target="_blank" rel="noopener">
+        <div class="screenplay-entry-head">
+          <h3 class="screenplay-title">My Brother the Priest</h3>
+          <span class="screenplay-read">Read Screenplay &rarr;</span>
+        </div>
+        <p class="screenplay-meta">10-Episode Limited Series — Mystery / Psychological Thriller</p>
+        <p>A live-action feature blending mystery, thriller, and horror while examining intergenerational trauma, poverty, and religious hypocrisy.</p>
+      </a>
+
+      <a class="screenplay-entry" href="screenplay_excerpts/THTOC.pdf" target="_blank" rel="noopener">
+        <div class="screenplay-entry-head">
+          <h3 class="screenplay-title">The Undeniable Innocence of Water Moccasins</h3>
+          <span class="screenplay-read">Read Screenplay &rarr;</span>
+        </div>
+        <p class="screenplay-meta">Feature Film — Drama</p>
+        <p>A coming-of-age drama about a girl with OCD struggling with the grief of losing her father and her emerging sexual identity as she grows up under the abuse of her stepfather.</p>
+      </a>
+
+      <div class="screenplay-entry is-coming-soon" aria-disabled="true">
+        <div class="screenplay-entry-head">
+          <h3 class="screenplay-title">Girls</h3>
+          <span class="screenplay-badge">In process of writing — Coming Soon</span>
+        </div>
+        <p class="screenplay-meta">Feature Film — Psychological Horror</p>
+        <p>A feature exploring jealousy, obsession, and the destructive pursuit of beauty.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- ============================= MUSIC ============================= -->
+<section class="film-panel film-panel-music" id="music" aria-label="Music">
+<div class="film-divider reveal-on-scroll" aria-hidden="true">
+  <span class="film-divider-line"></span>
+  <span class="film-divider-mark"><span></span></span>
+  <span class="film-divider-line"></span>
+</div>
+<div class="film-section-head">
+  <div class="container">
+    <span class="eyebrow">Film</span>
+    <h2 class="film-panel-title">Music</h2>
+  </div>
+</div>
+<section class="quote-block">
+  <div class="container">
+    <blockquote class="music-message">Soon to upload! We have tons of examples of scores Lewis has directed to upload and collaborating artists to feature!</blockquote>
+  </div>
+</section>
+</section>
+
+<!-- Slideshow viewer: opened by the "Slideshow" tile above; same large,
+     centered overlay as the clip player. Arrows / arrow keys / swipe move
+     between the 104 slides ("Slideshow" in js/main.js). -->
+<div class="video-modal la-video-modal slideshow-modal" id="slideshow-modal" role="dialog" aria-modal="true" aria-label="Slideshow">
+  <div class="video-modal-inner">
+    <button type="button" class="video-modal-close" aria-label="Close slideshow">&times;</button>
+    <div class="slideshow" data-slide-count="104" data-slide-base="media/slideshow/slide-" data-slide-pad="3" data-slide-ext=".jpg" tabindex="0" aria-label="Live Action slideshow, use the arrow buttons or arrow keys to navigate">
+      <div class="video-frame slideshow-frame">
+        <img class="slideshow-img" src="media/slideshow/slide-001.jpg" alt="Live Action slideshow, slide 1 of 104" loading="eager">
+        <div class="grain" aria-hidden="true"></div>
+        <button type="button" class="slideshow-arrow slideshow-prev" aria-label="Previous slide">&#8249;</button>
+        <button type="button" class="slideshow-arrow slideshow-next" aria-label="Next slide">&#8250;</button>
+      </div>
+      <div class="slideshow-meta">
+        <span class="slideshow-counter"><span class="slideshow-current">1</span> / <span class="slideshow-total">104</span></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Live Action clip player: opened by the clip thumbnails above -->
+<div class="video-modal la-video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="video-modal-inner">
+    <button type="button" class="video-modal-close" aria-label="Close video">&times;</button>
+    <div class="video-frame">
+      <iframe title="Video player" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <p class="video-modal-label"></p>
+  </div>
+</div>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="classes.html">Classes</a>
+          <a href="about.html">About</a>
+          <a href="index.html">Home</a>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="film.html">Film Production</a>
+          <a href="podcasts.html">Podcasts</a>
+          <a href="articles.html">Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+19703190560">(970) 319-0560</a>
+          <a href="mailto:alewis@ripplehouse.media">alewis@ripplehouse.media</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ripple House</span>
+      <span>Built as a static site</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+# ---- macOS junk ----
+.DS_Store
+
+# ---- Unused media (not referenced by any page, CSS or JS) ----
+# Full-size originals / old folders. The site uses the compressed copies in media/.
+/claymation/
+/news/
+/reviews/
+
+# Full-resolution originals of images the site serves as _web / _tile / .jpg versions
+/media/about.mp4
+/media/about_page.mp4
+/media/about_page_web.mp4
+/media/banner.mp4
+/media/banner_web.mp4
+/media/cinematography_reel.mp4
+/media/articles.png
+/media/claymation.png
+/media/liveaction.png
+/media/microchip.png
+/media/Music.png
+/media/screenwriting.png
+/media/set1.png
+/media/set2.png
+/media/slideshow.pdf
+
+# Unused tiles / leftovers
+/media/claymation_tile.jpg
+/media/liveaction_tile.jpg
+/media/music_tile.jpg
+/media/screenwriting_tile.jpg
+/media/5stars.png
+/media/favicon-48.png
+/media/news/deadline4.jpg
+/media/reviews/review1.jpg

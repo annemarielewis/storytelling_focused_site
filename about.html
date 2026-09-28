@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | A.M. LEWIS: Film Producer, Podcaster, Storyteller</title>
+<meta name="description" content="Writer, director, and producer creating socially impactful, emotionally resonant films — the mission, passion, and experience behind A.M. Lewis’s work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- Favicon — cropped/downsized from the existing ripple-rings mark in
+     media/logo.png (see .mission-glow/.mission-rings, the same motif used
+     throughout the site), not a new graphic. -->
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="media/favicon-180.png">
+<link rel="shortcut icon" href="media/favicon.ico">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- No .intro-pending on this page's <body> — that class/timeline only
+     applies to the homepage's freeze-frame hero (see js/main.js
+     beginEntrance(), gated on the hero's own <video> elements existing).
+     This page has no hero, so the nav should just be visible immediately,
+     same as any other subpage. -->
+
+<!-- ============================= NAV ============================= -->
+<nav class="site-nav">
+  <div class="container">
+    <a href="index.html" class="brand-lockup">
+      <img src="media/oscars.png" alt="" class="brand-logo">
+      <span class="brand">A.M. Lewis</span>
+    </a>
+    <div class="nav-controls">
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="classes.html">Classes</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Accolades
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="news.html">In the News</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+          </ul>
+        </li>
+        <li><a href="index.html">Home</a></li>
+        <li class="has-submenu">
+          <a class="nav-parent" role="button" tabindex="0" aria-haspopup="true">
+            Work
+            <span class="submenu-caret" aria-hidden="true"></span>
+          </a>
+          <ul class="submenu">
+            <li><a href="film.html">Film Production</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="articles.html">Articles</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================= ABOUT — tabbed bio + cinematic reel =============================
+     Two-column, full-viewport-height layout: tab-switched written content on
+     the left (About / My Passion / Experience), a large local autoplaying
+     video on the right — see the "ABOUT — tabbed bio + cinematic reel"
+     block in css/style.css for the full styling rationale. -->
+<section class="about-split">
+  <!-- .about-right (video) comes before .about-left (text) here on purpose:
+       it's floated right in CSS, and a float only affects normal-flow
+       content that follows it in the markup — this ordering is what lets
+       the writing wrap alongside the video while there's room, then
+       expand back out to the full section width once it runs past the
+       video's bottom edge. See the .about-right/.about-split comments in
+       css/style.css. -->
+  <div class="about-right">
+    <div class="about-video-frame">
+      <!-- poster: a still frame at the video's native 1920x1080 (16:9), so it
+           fills/crops identically to the video itself under the ".about-video-frame
+           video" sizing rules in style.css (object-fit:fill on a box pre-sized to
+           that exact aspect ratio). This shows real content immediately on page
+           load instead of a blank frame while the video buffers — added to reduce
+           the perceived delay before anything appears. about_web.mp4 itself was
+           also re-encoded (same 79.68s length/quality target, scaled to a size
+           matched to how large it actually ever renders on screen instead of full
+           1920x1080) to cut its file size roughly in half, so less data has to
+           download before it can start playing too. -->
+      <img class="about-frame-img" src="media/set1_web.jpg" alt="A.M. Lewis at work: directing on set beside a RED camera operator, a crew riding to location, a monitor showing an actor's close-up, and slating an outdoor scene" width="1600" height="822">
+      <div class="grain" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="about-left">
+    <header class="about-head">
+      <h1>About</h1>
+    </header>
+
+    <div class="about-panels">
+      <div class="about-panel" id="about-panel-about" data-panel="about">
+        <p class="lede">I am a storyteller who writes, directs, and produces narrative feature films, limited series, and podcasts. My mediums span from claymation to live action, but the thread uniting all my work is a desire to take complex, multifaceted, important subject matter and make it wildly entertaining and accessible through effective storytelling.</p>
+        <p class="lede">In short, I find the compelling human narrative inside subjects people might otherwise find too technical, complicated, uncomfortable, unfamiliar, or inaccessible—and turn it into entertainment they want to engage with, and social issues they now want to understand and affect, presented in interesting and thought provoking ways they can easily understand.</p>
+        <p class="lede">In film, I have experience managing large teams across all stages of production, writing and directing across diverse mediums, including live action, animation, and claymation. I have directed and produced a feature film currently in post-production, written four feature-length screenplays (one currently in post-production and one in pre-production), and created a ten-episode limited series.</p>
+        <p class="lede">In podcasting and writing, I have secured and hosted interviews with former U.S. Secretary of the Interior Ken Salazar, New York Times bestselling journalist and author Kevin Fedarko, and former Black Panther Party chair Elaine Brown, among other notable figures. I have pitched and created podcasts for organizations that were initially hesitant to invest in the medium, but later reported them as their most successful drivers of leads and donations. At American Rivers, a podcast I pitched and created 11 years ago, at age 19, became such a major public-engagement and education tool that it inspires the creation of the NGO’s entire storytelling division.</p>
+        <p class="lede">I hold an undergraduate degree in organismal biology and ecology and a graduate degree in computer science.</p>
+        <p class="lede about-cta">Let me add to your vision by combining both my technical and creative sides to meet your storytelling needs!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="classes.html">Classes</a>
+          <a href="about.html">About</a>
+          <a href="index.html">Home</a>
+          <a href="news.html">News</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="film.html">Film Production</a>
+          <a href="podcasts.html">Podcasts</a>
+          <a href="articles.html">Articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="tel:+19703190560">(970) 319-0560</a>
+          <a href="mailto:alewis@ripplehouse.media">alewis@ripplehouse.media</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ripple House</span>
+      <span>Built as a static site</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
